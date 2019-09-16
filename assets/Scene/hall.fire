@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5590097390504084,
-      "y": 0.5590097390504084,
+      "x": 0.40079747450164566,
+      "y": 0.40079747450164566,
       "z": 1
     },
     "_quat": {
@@ -344,8 +344,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -18,
-      "y": -185,
+      "x": -24,
+      "y": -176,
       "z": 0
     },
     "_scale": {
@@ -366,7 +366,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "a2YW/Y0D1D5YIWtOt+dMzb"
+    "_id": "bbWfTq/GZAqrjgf+/Xn2qY"
   },
   {
     "__type__": "sp.Skeleton",
@@ -378,7 +378,7 @@
     "_enabled": true,
     "paused": false,
     "defaultSkin": "",
-    "defaultAnimation": "walk",
+    "defaultAnimation": "run",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -389,7 +389,7 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "walk",
+    "_animationName": "run",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
@@ -402,10 +402,10 @@
     "_N$debugBones": false,
     "_N$useTint": false,
     "_N$enableBatch": false,
-    "_id": "8aXMZDRJZIcZOVul0wl4ib"
+    "_id": "68yEqFdchAuattiAvM0PlD"
   },
   {
-    "__type__": "e27c9fdXjpOvrXHV5QmB/7X",
+    "__type__": "19583UP2YBBlZonJ+j/BD7q",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -422,7 +422,7 @@
     "stopSpeed": 0,
     "normalSpeed": 100,
     "fastSpeed": 200,
-    "_id": "eef+NmeitNw7/1IpjBowSv"
+    "_id": "5brp22OH5HXIBpclLpIRQO"
   },
   {
     "__type__": "cc.Node",
@@ -671,29 +671,6 @@
     "_id": "92DM+kzaZEuqXwWqp75OWp"
   },
   {
-    "__type__": "965d6+vAp1OAajGemdUBWK+",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 10
-    },
-    "_enabled": true,
-    "dot": {
-      "__id__": 13
-    },
-    "ring": {
-      "__id__": 11
-    },
-    "player": {
-      "__id__": 7
-    },
-    "joystickType": 0,
-    "directionType": 4,
-    "_stickPos": null,
-    "_touchLocation": null,
-    "_id": "166w9hrAxOQ4+b1+NnegpO"
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -719,6 +696,29 @@
     "_originalWidth": 0,
     "_originalHeight": 0,
     "_id": "ee7yExpFVCE78K6MIQgqzF"
+  },
+  {
+    "__type__": "cbf49BjvVtNz5E6vqiAkw/f",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 10
+    },
+    "_enabled": true,
+    "dot": {
+      "__id__": 13
+    },
+    "ring": {
+      "__id__": 11
+    },
+    "player": {
+      "__id__": 7
+    },
+    "joystickType": 0,
+    "directionType": 0,
+    "_stickPos": null,
+    "_touchLocation": null,
+    "_id": "4bzcGpu39N4b+ih2VQwkP1"
   },
   {
     "__type__": "cc.Node",

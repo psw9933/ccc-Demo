@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '29753pvkBhLc5rN/SCpZBwE', 'JoystickCommon');
-// Texture/joystick/script/JoystickCommon.js
+cc._RF.push(module, 'f80eambIqNPUrjlSwBfm5Zx', 'JoystickCommon');
+// Script/hall/joystick/script/JoystickCommon.js
 
 "use strict";
 

@@ -1,5 +1,5 @@
 "use strict";
-cc._RF.push(module, 'e27c9fdXjpOvrXHV5QmB/7X', 'Player');
+cc._RF.push(module, '19583UP2YBBlZonJ+j/BD7q', 'Player');
 // Script/hall/joystick/script/Player.js
 
 'use strict';
