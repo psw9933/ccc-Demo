@@ -1,0 +1,359 @@
+2019-09-16T02:11:32.311Z - normal: Load ~/.CocosCreator/settings.json
+2019-09-16T02:11:33.441Z - normal: Initializing Asset Database
+2019-09-16T02:11:33.445Z - normal: checking language setting...
+2019-09-16T02:11:33.445Z - normal: Language: zh
+2019-09-16T02:11:34.008Z - success: preview server running at http://localhost:7457
+2019-09-16T02:11:34.009Z - success: protocol editor-framework registered
+2019-09-16T02:11:34.009Z - success: protocol app registered
+2019-09-16T02:11:34.009Z - success: protocol theme registered
+2019-09-16T02:11:34.009Z - success: protocol packages registered
+2019-09-16T02:11:34.009Z - success: protocol uuid registerred
+2019-09-16T02:11:34.009Z - success: protocol db registerred
+2019-09-16T02:11:34.009Z - success: protocol thumbnail registerred
+2019-09-16T02:11:34.009Z - success: protocol unpack registerred
+2019-09-16T02:11:34.009Z - success: protocol disable-commonjs registerred
+2019-09-16T02:11:34.131Z - normal: connected!
+2019-09-16T02:11:34.133Z - normal: Check project C:\Users\psw99\Documents\newDemo
+2019-09-16T02:11:34.134Z - normal: Initializing project C:\Users\psw99\Documents\newDemo
+2019-09-16T02:11:34.493Z - normal: Initializing Cocos2d
+2019-09-16T02:11:35.178Z - normal: Initializing engine extends
+2019-09-16T02:11:35.194Z - success: asset-db-debugger loaded
+2019-09-16T02:11:35.195Z - success: baidu-adapter loaded
+2019-09-16T02:11:35.196Z - success: color-picker loaded
+2019-09-16T02:11:35.271Z - success: fb-audience-network loaded
+2019-09-16T02:11:35.315Z - success: fb-live-stream loaded
+2019-09-16T02:11:35.318Z - success: google-play-instant loaded
+2019-09-16T02:11:35.323Z - success: huawei-runtime loaded
+2019-09-16T02:11:35.529Z - success: cpk-publish loaded
+2019-09-16T02:11:35.531Z - success: jsb-adapter loaded
+2019-09-16T02:11:35.535Z - success: oppo-runtime loaded
+2019-09-16T02:11:35.538Z - success: package-manager loaded
+2019-09-16T02:11:35.635Z - success: qqplay-adapter loaded
+2019-09-16T02:11:35.637Z - success: runtime-dev-tools loaded
+2019-09-16T02:11:35.640Z - success: sdkbox loaded
+2019-09-16T02:11:35.644Z - success: tester loaded
+2019-09-16T02:11:35.646Z - success: ui-grid loaded
+2019-09-16T02:11:35.648Z - success: ui-kit-preview-extra loaded
+2019-09-16T02:11:35.649Z - success: ui-kit-preview loaded
+2019-09-16T02:11:35.651Z - success: ui-kit loaded
+2019-09-16T02:11:35.653Z - success: ui-tree loaded
+2019-09-16T02:11:35.657Z - success: vivo-runtime loaded
+2019-09-16T02:11:35.658Z - success: weapp-adapter loaded
+2019-09-16T02:11:35.659Z - success: xiaomi-adapter loaded
+2019-09-16T02:11:35.699Z - success: assets loaded
+2019-09-16T02:11:35.701Z - success: builder loaded
+2019-09-16T02:11:35.925Z - success: cocos-services loaded
+2019-09-16T02:11:35.932Z - success: console loaded
+2019-09-16T02:11:35.966Z - success: fb-instant-games loaded
+2019-09-16T02:11:35.968Z - success: google-instant-games loaded
+2019-09-16T02:11:35.971Z - success: hierarchy loaded
+2019-09-16T02:11:35.974Z - success: inspector loaded
+2019-09-16T02:11:35.975Z - success: keystore loaded
+2019-09-16T02:11:35.978Z - success: node-library loaded
+2019-09-16T02:11:35.980Z - success: package-asset loaded
+2019-09-16T02:11:35.982Z - success: preferences loaded
+2019-09-16T02:11:35.983Z - success: project-exporter loaded
+2019-09-16T02:11:35.984Z - success: project-importer loaded
+2019-09-16T02:11:35.986Z - success: project-settings loaded
+2019-09-16T02:11:35.988Z - success: scene loaded
+2019-09-16T02:11:35.990Z - success: simulator-debugger loaded
+2019-09-16T02:11:35.991Z - success: sprite-editor loaded
+2019-09-16T02:11:35.994Z - success: store loaded
+2019-09-16T02:11:35.997Z - success: timeline loaded
+2019-09-16T02:11:36.002Z - success: xiaomi-runtime loaded
+2019-09-16T02:11:36.005Z - success: bitmap-font loaded
+2019-09-16T02:11:36.006Z - success: font-slimming-tools loaded
+2019-09-16T02:11:36.068Z - success: unpack-textureatlas loaded
+2019-09-16T02:11:37.332Z - info: Cocos Services load base data!
+2019-09-16T02:11:37.333Z - normal: Loading packages
+2019-09-16T02:11:37.353Z - normal: Watching packages
+2019-09-16T02:11:37.827Z - normal: Run Application
+2019-09-16T03:12:05.958Z - normal: Simulator: SCREEN DPI = 96, SCREEN SCALE = 1.00
+2019-09-16T03:12:05.961Z - normal: Simulator: WORKAREA WIDTH 1912.00, HEIGHT 989.00
+2019-09-16T03:12:05.961Z - normal: Simulator: FRAME SCALE = 0.25
+2019-09-16T03:12:06.043Z - normal: Simulator: Ready for GLSL
+2019-09-16T03:12:06.043Z - normal: Simulator: Ready for OpenGL 2.0
+2019-09-16T03:12:06.044Z - normal: Simulator: Project Config:
+2019-09-16T03:12:06.045Z - normal: Simulator:     project dir: C:\CocosCreator_2.0.10\resources\cocos2d-x\simulator\win32\
+2019-09-16T03:12:06.045Z - normal: Simulator:     writable path: $(PROJDIR)\
+2019-09-16T03:12:06.046Z - normal: Simulator:     script file: $(PROJDIR)\main.js
+2019-09-16T03:12:06.046Z - normal: Simulator:     frame size: 1125 x 2436
+2019-09-16T03:12:06.046Z - normal: Simulator:     frame scale: 0.25
+2019-09-16T03:12:06.047Z - normal: Simulator:     show console: NO
+2019-09-16T03:12:06.047Z - normal: Simulator:     write debug log: NO ()
+2019-09-16T03:12:06.047Z - normal: Simulator:     listen: 
+2019-09-16T03:12:06.048Z - normal: Simulator:     debugger: none
+2019-09-16T03:12:06.048Z - normal: Simulator:     add searching path:
+2019-09-16T03:12:06.048Z - normal: Simulator: 
+2019-09-16T03:12:06.049Z - normal: Simulator: 
+2019-09-16T03:12:06.049Z - normal: Simulator: 
+2019-09-16T03:12:06.049Z - normal: Simulator: resetDesignResolution request
+2019-09-16T03:12:06.049Z - normal: Simulator: ------------------------------------------------
+2019-09-16T03:12:06.049Z - normal: Simulator: LOAD Js FILE: jsb-adapter/jsb-builtin.js
+2019-09-16T03:12:06.050Z - normal: Simulator: ------------------------------------------------
+2019-09-16T03:12:06.050Z - normal: Simulator: D/jswrapper (368): Initializing V8, version: 6.0.286.52
+2019-09-16T03:12:06.406Z - normal: Simulator: D/jswrapper (813): libuv version: 1.13.1
+2019-09-16T03:12:06.430Z - normal: Simulator: D/jswrapper (112): Debugger listening..., visit [ chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=0.0.0.0:5086/00010002-0003-4004-8005-000600070008 ] in chrome browser to debug!
+2019-09-16T03:12:06.430Z - normal: Simulator: D/jswrapper (115): For help see https://nodejs.org/en/docs/inspector
+2019-09-16T03:12:06.479Z - normal: Simulator: D/jswrapper (129): JS: Enable batch GL commands optimization!
+2019-09-16T03:12:06.482Z - normal: Simulator: resetDesignResolution request
+2019-09-16T03:12:06.482Z - normal: Simulator: ------------------------------------------------
+2019-09-16T03:12:06.482Z - normal: Simulator: LOAD Js FILE: main.js
+2019-09-16T03:12:06.483Z - normal: Simulator: ------------------------------------------------
+2019-09-16T03:12:06.807Z - normal: Simulator: iShow!
+2019-09-16T03:12:06.829Z - normal: Simulator: D/jswrapper (4159): glGetIntegerv: pname: 0x8b4c
+2019-09-16T03:12:06.847Z - normal: Simulator: D/jswrapper (129): JS: Cocos Creator v2.0.10
+2019-09-16T03:12:07.074Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: The node can not be made persist because it's not under root node.
+2019-09-16T03:12:09.741Z - normal: Simulator: D/jswrapper (129): JS: LoadScene dcf00a83-a661-4071-827d-6b83e8d4a66d: 37.86299999999983ms
+2019-09-16T03:12:09.757Z - error: Simulator: E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing arguments
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T03:12:09.757Z - error: Simulator: E/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T03:12:09.757Z - error: Simulator: E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T03:12:09.762Z - error: Simulator: E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T03:12:20.792Z - normal: Simulator: D/jswrapper (452): ScriptEngine::cleanup begin ...
+2019-09-16T03:12:20.793Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 45, all objects: 130
+2019-09-16T03:12:20.836Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 38, all objects: 123
+2019-09-16T03:12:20.836Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 38, all objects: 123
+2019-09-16T03:12:20.883Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 38, all objects: 123
+2019-09-16T03:12:20.884Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (8) by GC
+2019-09-16T03:12:20.885Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (3) by GC
+2019-09-16T03:12:20.885Z - normal: Simulator: D/jswrapper (327): Destroy WebGLProgram (3) by GC
+2019-09-16T03:12:20.885Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (1) by GC
+2019-09-16T03:12:20.885Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (2) by GC
+2019-09-16T03:12:20.886Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (1) by GC
+2019-09-16T03:12:20.886Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (4) by GC
+2019-09-16T03:12:20.887Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (2) by GC
+2019-09-16T03:12:20.887Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (6) by GC
+2019-09-16T03:12:20.888Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (3) by GC
+2019-09-16T03:12:20.890Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (4) by GC
+2019-09-16T03:12:20.890Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (5) by GC
+2019-09-16T03:12:20.890Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (7) by GC
+2019-09-16T03:12:20.891Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (9) by GC
+2019-09-16T03:12:20.891Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (17) by GC
+2019-09-16T03:12:20.891Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (19) by GC
+2019-09-16T03:12:21.051Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (18) by GC
+2019-09-16T03:12:21.051Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (10) by GC
+2019-09-16T03:12:21.051Z - normal: Simulator: D/jswrapper (327): Destroy WebGLProgram (6) by GC
+2019-09-16T03:12:21.053Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 0, all objects: 0
+2019-09-16T03:12:21.098Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 0, all objects: 0
+2019-09-16T03:12:21.106Z - normal: Simulator: D/jswrapper (515): ScriptEngine::cleanup end ...
+2019-09-16T03:13:09.872Z - failed: load script [C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js] failed : TypeError: Cannot read property 'STOP' of undefined
+    at __define (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:20:41)
+    at C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:80:13
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:87:11)
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:90:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2019-09-16T03:13:32.430Z - failed: load script [C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js] failed : TypeError: Cannot read property 'STOP' of undefined
+    at __define (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:20:41)
+    at C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:80:13
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:87:11)
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Player.js:90:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2019-09-16T06:01:08.818Z - failed: load script [C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Joystick.js] failed : TypeError: Cannot read property 'FIXED' of undefined
+    at __define (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Joystick.js:30:59)
+    at C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Joystick.js:136:13
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Joystick.js:143:11)
+    at Object.<anonymous> (C:\Users\psw99\Documents\newDemo\temp\quick-scripts\assets\Script\hall\joystick\script\Joystick.js:146:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+2019-09-16T06:01:08.925Z - normal: Simulator: SCREEN DPI = 96, SCREEN SCALE = 1.00
+2019-09-16T06:01:08.925Z - normal: Simulator: WORKAREA WIDTH 1912.00, HEIGHT 989.00
+2019-09-16T06:01:08.925Z - normal: Simulator: FRAME SCALE = 0.25
+2019-09-16T06:01:09.003Z - normal: Simulator: Ready for GLSL
+2019-09-16T06:01:09.004Z - normal: Simulator: Ready for OpenGL 2.0
+2019-09-16T06:01:09.009Z - normal: Simulator: Project Config:
+2019-09-16T06:01:09.009Z - normal: Simulator:     project dir: C:\CocosCreator_2.0.10\resources\cocos2d-x\simulator\win32\
+2019-09-16T06:01:09.010Z - normal: Simulator:     writable path: $(PROJDIR)\
+2019-09-16T06:01:09.010Z - normal: Simulator:     script file: $(PROJDIR)\main.js
+2019-09-16T06:01:09.010Z - normal: Simulator:     frame size: 1125 x 2436
+2019-09-16T06:01:09.010Z - normal: Simulator:     frame scale: 0.25
+2019-09-16T06:01:09.010Z - normal: Simulator:     show console: NO
+2019-09-16T06:01:09.010Z - normal: Simulator:     write debug log: NO ()
+2019-09-16T06:01:09.011Z - normal: Simulator:     listen: 
+2019-09-16T06:01:09.011Z - normal: Simulator:     debugger: none
+2019-09-16T06:01:09.011Z - normal: Simulator:     add searching path:
+2019-09-16T06:01:09.011Z - normal: Simulator: 
+2019-09-16T06:01:09.011Z - normal: Simulator: 
+2019-09-16T06:01:09.011Z - normal: Simulator: 
+2019-09-16T06:01:09.012Z - normal: Simulator: resetDesignResolution request
+2019-09-16T06:01:09.013Z - normal: Simulator: ------------------------------------------------
+2019-09-16T06:01:09.013Z - normal: Simulator: LOAD Js FILE: jsb-adapter/jsb-builtin.js
+2019-09-16T06:01:09.013Z - normal: Simulator: ------------------------------------------------
+2019-09-16T06:01:09.013Z - normal: Simulator: D/jswrapper (368): Initializing V8, version: 6.0.286.52
+2019-09-16T06:01:09.396Z - normal: Simulator: D/jswrapper (813): libuv version: 1.13.1
+2019-09-16T06:01:09.424Z - normal: Simulator: D/jswrapper (112): Debugger listening..., visit [ chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=0.0.0.0:5086/00010002-0003-4004-8005-000600070008 ] in chrome browser to debug!
+2019-09-16T06:01:09.424Z - normal: Simulator: D/jswrapper (115): For help see https://nodejs.org/en/docs/inspector
+2019-09-16T06:01:09.464Z - normal: Simulator: D/jswrapper (129): JS: Enable batch GL commands optimization!
+2019-09-16T06:01:09.465Z - normal: Simulator: resetDesignResolution request
+2019-09-16T06:01:09.466Z - normal: Simulator: ------------------------------------------------
+2019-09-16T06:01:09.466Z - normal: Simulator: LOAD Js FILE: main.js
+2019-09-16T06:01:09.466Z - normal: Simulator: ------------------------------------------------
+2019-09-16T06:01:09.799Z - normal: Simulator: iShow!
+2019-09-16T06:01:09.818Z - error: Simulator: E/jswrapper (271): ERROR: Uncaught TypeError: Cannot read property 'FIXED' of undefined, location: assets/Script/hall/joystick/script/Joystick.js:0:0
+STACK:
+[0]__define@assets/Script/hall/joystick/script/Joystick.js:30
+[1]anonymous@assets/Script/hall/joystick/script/Joystick.js:140
+[2]run@src/modular.js:85
+[3]_prepareFinished@src/cocos2d-jsb.js:7460
+[4]anonymous@src/cocos2d-jsb.js:7487
+[5]anonymous@src/cocos2d-jsb.js:21083
+[6]anonymous@src/cocos2d-jsb.js:30419
+[7]fireTimeout@jsb-adapter/jsb-builtin.js:2033
+[8]tick@jsb-adapter/jsb-builtin.js:1995
+E/jswrapper (534): [ERROR] (..\cocos\scripting\js-bindings\jswrapper\v8\Object.cpp, 534): Invoking function (114627E8) failed!
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:01:09.829Z - normal: Simulator: D/jswrapper (4159): glGetIntegerv: pname: 0x8b4c
+2019-09-16T06:01:09.850Z - normal: Simulator: D/jswrapper (129): JS: Cocos Creator v2.0.10
+2019-09-16T06:01:10.083Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: The node can not be made persist because it's not under root node.
+2019-09-16T06:01:11.897Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: Can not find class 'e27c9fdXjpOvrXHV5QmB/7X'
+2019-09-16T06:01:11.899Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: Can not find class '965d6+vAp1OAajGemdUBWK+'
+2019-09-16T06:01:11.934Z - normal: Simulator: D/jswrapper (129): JS: LoadScene dcf00a83-a661-4071-827d-6b83e8d4a66d: 39.61799999999994ms
+2019-09-16T06:01:11.949Z - error: Simulator: E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:01:11.950Z - error: Simulator: E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:01:11.950Z - error: Simulator: E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+E/jswrapper (1024): jsb: ERROR: File ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp: Line: 1024, Function: js_cocos2dx_spine_SpineAnimation_setMix
+E/jswrapper (1024): js_cocos2dx_spine_SpineAnimation_setMix : Error processing argumentsE/jswrapper (1031): [ERROR] Failed to invoke js_cocos2dx_spine_SpineAnimation_setMix, location: ..\cocos\scripting\js-bindings\auto\jsb_cocos2dx_spine_auto.cpp:1031
+    at HTMLElement.print-simulator-log (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1501)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:01:11.955Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: Script attached to 'spineboy' is missing or invalid.
+2019-09-16T06:01:11.956Z - normal: Simulator: D/jswrapper (129): JS: [WARN]: Script attached to 'Joystick' is missing or invalid.
+2019-09-16T06:01:22.624Z - normal: Simulator: D/jswrapper (452): ScriptEngine::cleanup begin ...
+2019-09-16T06:01:22.624Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 45, all objects: 130
+2019-09-16T06:01:22.668Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 38, all objects: 123
+2019-09-16T06:01:22.668Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 38, all objects: 123
+2019-09-16T06:01:22.708Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 38, all objects: 123
+2019-09-16T06:01:22.711Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (3) by GC
+2019-09-16T06:01:22.712Z - normal: Simulator: D/jswrapper (327): Destroy WebGLProgram (3) by GC
+2019-09-16T06:01:22.712Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (1) by GC
+2019-09-16T06:01:22.712Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (6) by GC
+2019-09-16T06:01:22.712Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (1) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (7) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (2) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (270): Destroy WebGLBuffer (4) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (2) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (3) by GC
+2019-09-16T06:01:22.713Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (9) by GC
+2019-09-16T06:01:22.714Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (4) by GC
+2019-09-16T06:01:22.714Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (5) by GC
+2019-09-16T06:01:22.714Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (8) by GC
+2019-09-16T06:01:22.714Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (18) by GC
+2019-09-16T06:01:22.715Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (17) by GC
+2019-09-16T06:01:22.885Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (19) by GC
+2019-09-16T06:01:22.885Z - normal: Simulator: D/jswrapper (251): Destroy WebGLTexture (10) by GC
+2019-09-16T06:01:22.885Z - normal: Simulator: D/jswrapper (327): Destroy WebGLProgram (6) by GC
+2019-09-16T06:01:22.885Z - normal: Simulator: D/jswrapper (593): GC begin ..., (js->native map) size: 0, all objects: 0
+2019-09-16T06:01:22.924Z - normal: Simulator: D/jswrapper (601): GC end ..., (js->native map) size: 0, all objects: 0
+2019-09-16T06:01:22.933Z - normal: Simulator: D/jswrapper (515): ScriptEngine::cleanup end ...
+2019-09-16T06:01:51.319Z - error: Can not find cc.Component in the script 965d6+vAp1OAajGemdUBWK+.
+    at Object.addComponent (C:\CocosCreator_2.0.10\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:6094)
+    at HTMLElement.add-component (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:1166)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:02:18.804Z - error: Can not find cc.Component in the script 965d6+vAp1OAajGemdUBWK+.
+    at Object.addComponent (C:\CocosCreator_2.0.10\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:6094)
+    at HTMLElement.add-component (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:1166)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:06:57.497Z - error: Can not find cc.Component in the script 965d6+vAp1OAajGemdUBWK+.
+    at Object.addComponent (C:\CocosCreator_2.0.10\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:6094)
+    at HTMLElement.add-component (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:1166)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:07:21.347Z - error: Can not find cc.Component in the script e27c9fdXjpOvrXHV5QmB/7X.
+    at Object.addComponent (C:\CocosCreator_2.0.10\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:6094)
+    at HTMLElement.add-component (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:1166)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:07:25.379Z - error: Can not find cc.Component in the script e27c9fdXjpOvrXHV5QmB/7X.
+    at Object.addComponent (C:\CocosCreator_2.0.10\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:6094)
+    at HTMLElement.add-component (C:\CocosCreator_2.0.10\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:1166)
+    at Object.e._dispatch (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\panel.js:1:1941)
+    at EventEmitter.o.on.s (C:\CocosCreator_2.0.10\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:2921)
+    at emitMany (events.js:127:13)
+    at EventEmitter.emit (events.js:204:7)
+2019-09-16T06:07:37.047Z - warn: Script attached to "spineboy" in scene "hall.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/spineboy"
+Asset url: "db://assets/Scene/hall.fire"
+Script UUID: "e27c97dd-5e3a-4ebe-b5c7-57942607fed7"
+Class ID: "e27c9fdXjpOvrXHV5QmB/7X"
+
+2019-09-16T06:07:37.048Z - warn: Script attached to "Joystick" in scene "hall.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/Joystick"
+Asset url: "db://assets/Scene/hall.fire"
+Script UUID: "965d6faf-029d-4e01-a8c6-7a67540562be"
+Class ID: "965d6+vAp1OAajGemdUBWK+"
+
