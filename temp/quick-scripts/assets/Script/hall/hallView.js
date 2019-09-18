@@ -3,15 +3,6 @@ cc._RF.push(module, '9e63d6AFe9A6pSY0+9KWE4l', 'hallView', __filename);
 // Script/hall/hallView.ts
 
 "use strict";
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -30,42 +21,54 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var hallView = /** @class */ (function (_super) {
+    __extends(hallView, _super);
+    function hallView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.spine = null;
-        _this.joystick = null;
+        _this.PlayerPre = null;
+        _this.JoystickPre = null;
+        _this.JoystickNode = null;
+        _this.playerNode = null;
         return _this;
-        // update (dt) {}
     }
-    NewClass.prototype.onLoad = function () {
-        this._setMix('walk', 'run');
-        this._setMix('run', 'jump');
-        this._setMix('walk', 'jump');
+    hallView.prototype.onLoad = function () {
+        this.initPlayer();
+        this.initJoystick();
     };
-    NewClass.prototype.clickStart = function () {
-        this.spine.setAnimation(0, 'run', true);
-        this._hasStop = false;
+    hallView.prototype.initJoystick = function () {
+        this.JoystickNode = cc.instantiate(this.JoystickPre);
+        this.JoystickNode.getComponent('joyStickControl').playerControl = this.playerNode.getComponent('playerControl');
+        this.JoystickNode.parent = this.node;
+        this.JoystickNode.active = false;
     };
-    NewClass.prototype.start = function () {
+    hallView.prototype.initPlayer = function () {
+        this.playerNode = cc.instantiate(this.PlayerPre);
+        this.playerNode.getComponent('playerControl').hallView = this;
+        this.playerNode.parent = this.node;
+        this.playerNode.setPosition(-554, -255);
     };
-    NewClass.prototype._setMix = function (anim1, anim2) {
-        this.spine.setMix(anim1, anim2, this.mixTime);
-        this.spine.setMix(anim2, anim1, this.mixTime);
+    hallView.prototype.clickShowJoystick = function (event) {
+        this.JoystickNode.active = true;
+        this.JoystickNode.setPosition(-485, -258);
+    };
+    hallView.prototype.checkInMovableArea = function (loaction) {
+        // var point =this.node.convertToNodeSpaceAR(loaction);
+        // cc.log(point)
+        var bool = cc.Intersection.pointInPolygon(loaction, this.node.getComponent(cc.PolygonCollider).points);
+        return bool;
     };
     __decorate([
-        property(sp.Skeleton)
-    ], NewClass.prototype, "spine", void 0);
+        property(cc.Prefab)
+    ], hallView.prototype, "PlayerPre", void 0);
     __decorate([
-        property(cc.Node)
-    ], NewClass.prototype, "joystick", void 0);
-    NewClass = __decorate([
+        property(cc.Prefab)
+    ], hallView.prototype, "JoystickPre", void 0);
+    hallView = __decorate([
         ccclass
-    ], NewClass);
-    return NewClass;
+    ], hallView);
+    return hallView;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = hallView;
 
 cc._RF.pop();
         }

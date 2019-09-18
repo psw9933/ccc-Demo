@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 1912,
-      "y": 0,
+      "x": -8,
+      "y": -8,
       "width": 1936,
-      "height": 1096,
+      "height": 1056,
       "layout": {
         "children": [
           {
@@ -16,9 +16,9 @@
             "children": [
               "hierarchy"
             ],
-            "height": 977,
+            "height": 937,
             "type": "panel",
-            "width": 240
+            "width": 218
           },
           {
             "children": [
@@ -29,23 +29,23 @@
                     "children": [
                       "assets"
                     ],
-                    "height": 698,
+                    "height": 669,
                     "type": "panel",
-                    "width": 278
+                    "width": 239
                   },
                   {
                     "active": 0,
                     "children": [
                       "scene"
                     ],
-                    "height": 698,
+                    "height": 669,
                     "type": "panel",
-                    "width": 1043.984375
+                    "width": 1152.984375
                   }
                 ],
-                "height": 698,
+                "height": 669,
                 "type": "dock-h",
-                "width": 1324
+                "width": 1394
               },
               {
                 "active": 0,
@@ -53,14 +53,14 @@
                   "console",
                   "timeline"
                 ],
-                "height": 277,
+                "height": 266,
                 "type": "panel",
-                "width": 1324
+                "width": 1394
               }
             ],
-            "height": 977,
+            "height": 937,
             "type": "dock-v",
-            "width": 1324
+            "width": 1394
           },
           {
             "active": 0,
@@ -68,9 +68,9 @@
               "inspector",
               "cocos-services"
             ],
-            "height": 977,
+            "height": 937,
             "type": "panel",
-            "width": 352
+            "width": 304
           }
         ],
         "type": "dock-h"
@@ -86,24 +86,5 @@
       ]
     }
   },
-  "panels": {
-    "project-settings": {
-      "x": 707,
-      "y": 188,
-      "width": 600,
-      "height": 565
-    },
-    "sprite-editor": {
-      "x": 702,
-      "y": 260,
-      "width": 516,
-      "height": 539
-    },
-    "package-asset.import": {
-      "x": 727,
-      "y": 255,
-      "width": 470,
-      "height": 575
-    }
-  }
+  "panels": {}
 }

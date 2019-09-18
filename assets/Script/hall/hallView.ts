@@ -1,43 +1,41 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import {gameProtocol} from "../game/gameProtocol"
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class hallView extends cc.Component {
+    @property(cc.Prefab)
+    PlayerPre:cc.Prefab=null;
 
-    @property(sp.Skeleton)
-    spine: sp.Skeleton = null;
+    @property(cc.Prefab)
+    JoystickPre:cc.Prefab=null;
 
-    @property(cc.Node)
-    joystick: cc.Node = null;
-
-    private mixTime: 0.2
-    private _hasStop:boolean
-
+    private JoystickNode=null
+    private playerNode=null
     onLoad () {
-        this._setMix('walk', 'run');
-        this._setMix('run', 'jump');
-        this._setMix('walk', 'jump');
+        this.initPlayer();
+        this.initJoystick()
+    }
+    initJoystick(){
+        this.JoystickNode=cc.instantiate(this.JoystickPre);
+        this.JoystickNode.getComponent('joyStickControl').playerControl=this.playerNode.getComponent('playerControl');
+        this.JoystickNode.parent=this.node;
+        this.JoystickNode.active=false
     }
 
-    clickStart(){
-            this.spine.setAnimation(0, 'run', true);
-            this._hasStop = false;
+    initPlayer(){
+        this.playerNode=cc.instantiate(this.PlayerPre);
+        this.playerNode.getComponent('playerControl').hallView=this;
+        this.playerNode.parent=this.node;
+        this.playerNode.setPosition(-554,-255)
     }
-    start () {
-
+    clickShowJoystick(event){
+        this.JoystickNode.active=true
+        this.JoystickNode.setPosition(-485,-258)
     }
-    _setMix (anim1, anim2) {
-        this.spine.setMix(anim1, anim2, this.mixTime);
-        this.spine.setMix(anim2, anim1, this.mixTime);
+    checkInMovableArea(loaction){
+        // var point =this.node.convertToNodeSpaceAR(loaction);
+        // cc.log(point)
+        var bool = cc.Intersection.pointInPolygon(loaction, this.node.getComponent(cc.PolygonCollider).points)
+        return bool
     }
-    // update (dt) {}
 }
