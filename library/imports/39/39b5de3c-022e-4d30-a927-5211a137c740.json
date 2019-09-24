@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "hero.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "clickBtn": {
+      "__uuid__": "6335e808-131a-49b6-a3db-d79ec06eb870"
+    },
+    "effect": {
+      "__uuid__": "93576fef-bbad-45ee-8c9b-9b388c6dee70"
+    },
+    "frame1": {
+      "__uuid__": "7b88819b-4c0c-47e5-a4af-dd0bec94aabb"
+    },
+    "frame2": {
+      "__uuid__": "dde0e438-c3de-4c5c-b187-c6ec5ee93e43"
+    },
+    "gun": {
+      "__uuid__": "65387952-a446-4a7a-9c58-9800d1ad84d1"
+    },
+    "gun1": {
+      "__uuid__": "a9a785b1-27e3-48c8-8691-428855275d81"
+    },
+    "gun2": {
+      "__uuid__": "b002f075-cf4f-4813-a4a9-a3162edc3f33"
+    },
+    "gun3": {
+      "__uuid__": "04ab5b6e-9add-4217-9814-caef9ec54fe8"
+    },
+    "gun4": {
+      "__uuid__": "2a88db4e-53df-405b-a8ac-86e5f42ba192"
+    },
+    "gunLeve4": {
+      "__uuid__": "be491b13-c71e-4fe3-97a1-5f6c8292e150"
+    },
+    "gunLevel1": {
+      "__uuid__": "67b8d37b-4620-4fca-9a26-1da9117278ed"
+    },
+    "gunLevel2": {
+      "__uuid__": "5e94f9bc-5faf-42d5-98a3-86b6804b7a31"
+    },
+    "gunLevel3": {
+      "__uuid__": "e323d340-63f4-4929-ba59-ed039f6ab71b"
+    },
+    "head1": {
+      "__uuid__": "68ce0b55-a5da-408c-9d56-6b58530a1edc"
+    },
+    "head2": {
+      "__uuid__": "d879a9a2-53c2-4ffd-b87f-722feb1ba328"
+    },
+    "head3": {
+      "__uuid__": "f2c5d13e-372f-4172-ba1d-c5db498b03ac"
+    },
+    "head4": {
+      "__uuid__": "c6a9adaa-6ba2-4100-9d6c-13b0b757d714"
+    },
+    "head5": {
+      "__uuid__": "2176eb3e-eeb3-4028-8fe5-7fee4cb22c45"
+    },
+    "leftBtn": {
+      "__uuid__": "1df7eca1-204a-4065-963b-502a661103d6"
+    },
+    "life": {
+      "__uuid__": "22d90108-f760-42d2-89e6-ab9d66cf2336"
+    },
+    "title": {
+      "__uuid__": "9d5efbf8-e501-42ce-9ddf-5357f8bfd90c"
+    }
+  }
+}

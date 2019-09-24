@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "36-min",
+    "texture": "c27c9b64-109d-4a2a-ad81-9284565288dc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1670,
+      822
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1670,
+      822
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

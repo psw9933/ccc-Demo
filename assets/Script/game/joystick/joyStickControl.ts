@@ -1,5 +1,5 @@
-import { gameProtocol } from "./gameProtocol"
-import { playerControl } from "./playerControl"
+import { gameProtocol } from "../gameProtocol"
+import { playerControl } from "../playerControl"
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -83,6 +83,7 @@ export default class joyStickControl extends cc.Component {
   _touchEndEvent() {
     this.dot.setPosition(this.ring.getPosition());
     this.playerControl._speedType = gameProtocol.joystick.SpeedType.STOP;
+    cc.systemEvent.emit(gameProtocol.event.displayJoyStick);
   }
 
   // // methods

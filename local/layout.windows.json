@@ -18,7 +18,7 @@
             ],
             "height": 937,
             "type": "panel",
-            "width": 218
+            "width": 204
           },
           {
             "children": [
@@ -31,7 +31,7 @@
                     ],
                     "height": 669,
                     "type": "panel",
-                    "width": 239
+                    "width": 223
                   },
                   {
                     "active": 0,
@@ -40,12 +40,12 @@
                     ],
                     "height": 669,
                     "type": "panel",
-                    "width": 1152.984375
+                    "width": 1025
                   }
                 ],
                 "height": 669,
                 "type": "dock-h",
-                "width": 1394
+                "width": 1250
               },
               {
                 "active": 0,
@@ -55,12 +55,12 @@
                 ],
                 "height": 266,
                 "type": "panel",
-                "width": 1394
+                "width": 1250
               }
             ],
             "height": 937,
             "type": "dock-v",
-            "width": 1394
+            "width": 1250
           },
           {
             "active": 0,
@@ -70,7 +70,7 @@
             ],
             "height": 937,
             "type": "panel",
-            "width": 304
+            "width": 462
           }
         ],
         "type": "dock-h"
@@ -86,5 +86,18 @@
       ]
     }
   },
-  "panels": {}
+  "panels": {
+    "sprite-editor": {
+      "x": -8,
+      "y": -8,
+      "width": 1936,
+      "height": 1056
+    },
+    "package-asset.import": {
+      "x": 727,
+      "y": 235,
+      "width": 470,
+      "height": 575
+    }
+  }
 }

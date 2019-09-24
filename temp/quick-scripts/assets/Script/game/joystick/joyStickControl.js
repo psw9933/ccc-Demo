@@ -20,8 +20,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var gameProtocol_1 = require("./gameProtocol");
-var playerControl_1 = require("./playerControl");
+var gameProtocol_1 = require("../gameProtocol");
+var playerControl_1 = require("../playerControl");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var joyStickControl = /** @class */ (function (_super) {
     __extends(joyStickControl, _super);
@@ -95,6 +95,7 @@ var joyStickControl = /** @class */ (function (_super) {
     joyStickControl.prototype._touchEndEvent = function () {
         this.dot.setPosition(this.ring.getPosition());
         this.playerControl._speedType = gameProtocol_1.gameProtocol.joystick.SpeedType.STOP;
+        cc.systemEvent.emit(gameProtocol_1.gameProtocol.event.displayJoyStick);
     };
     __decorate([
         property(cc.Node)

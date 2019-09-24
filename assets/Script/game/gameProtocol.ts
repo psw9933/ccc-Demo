@@ -5,9 +5,13 @@ var gameProtocol = {
      */
     event: {
         /**
-         * 角色跑动
+         * 隐藏虚拟摇杆
          */
-        playerRunAction: '角色跑动',
+        displayJoyStick: "隐藏虚拟摇杆",
+        /**
+         * player射击
+         */
+        playerShooting: "player射击",
     },
 
 
@@ -39,5 +43,6 @@ var gameProtocol = {
             FAST: 2
         }),
     }
+    
 }
 export { gameProtocol }

@@ -1,12 +1,12 @@
 import { gameProtocol } from "./gameProtocol"
-import hallView from "../hall/hallView"
+import battleView from "../battle/battleView"
 const { ccclass, property } = cc._decorator;
 
 
 @ccclass
 export default class playerControl extends cc.Component {
-    @property(hallView)
-    hallView: hallView = null;
+    @property(battleView)
+    battleView: battleView = null;
 
     /**移动方向 */
     @property(cc.v2)
@@ -40,11 +40,23 @@ export default class playerControl extends cc.Component {
     private hasAniRun: boolean = false
     private hasAniWalk: boolean = false
     onLoad() {
+        this.initEvent()
         this.spine = this.node.getComponent(sp.Skeleton)
         this._setMix('walk', 'run');
         this._setMix('run', 'jump');
         this._setMix('walk', 'jump');
     }
+
+    private initEvent() {
+        cc.systemEvent.on(gameProtocol.event.playerShooting, this.Shooting, this);
+    }
+    private clearEvent() {
+        cc.systemEvent.off(gameProtocol.event.playerShooting, this.Shooting, this);
+    }
+    onDestroy() {
+        this.clearEvent()
+    }
+
     _setMix(anim1, anim2) {
         this.spine.setMix(anim1, anim2, this.mixTime);
         this.spine.setMix(anim2, anim1, this.mixTime);
@@ -60,9 +72,14 @@ export default class playerControl extends cc.Component {
         }
         let newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
         //碰撞体检查newPos在可移动区域范围内
-        if (this.hallView.checkInMovableArea(newPos)) {
+        if (this.battleView.checkInMovableArea(newPos)) {
             this.node.setPosition(newPos);
         }
+    }
+
+    Shooting(){
+        cc.log("Shooting")
+        this.spine.setAnimation(1, 'shoot', false);
     }
 
     update(dt) {

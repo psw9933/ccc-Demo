@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "sniper",
+    "texture": "ec8b1bc2-5c99-4a1c-9635-964902b15a45",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      508,
+      251
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      512,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

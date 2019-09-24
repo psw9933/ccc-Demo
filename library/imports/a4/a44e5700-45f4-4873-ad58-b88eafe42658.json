@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "contra5",
+    "texture": "48198279-d5df-4257-bde7-83352d202c1f",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      510,
+      506
+    ],
+    "offset": [
+      -1,
+      1
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

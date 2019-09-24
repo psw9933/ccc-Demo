@@ -1,0 +1,167 @@
+
+DT_BG1.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1dt_bg_quan1
+  rotate: false
+  xy: 576, 4
+  size: 334, 66
+  orig: 587, 108
+  offset: 129, 18
+  index: -1
+1dt_bg_quan10
+  rotate: true
+  xy: 849, 513
+  size: 436, 79
+  orig: 587, 108
+  offset: 78, 13
+  index: -1
+1dt_bg_quan11
+  rotate: true
+  xy: 766, 500
+  size: 449, 81
+  orig: 587, 108
+  offset: 71, 11
+  index: -1
+1dt_bg_quan12
+  rotate: true
+  xy: 681, 485
+  size: 464, 83
+  orig: 587, 108
+  offset: 64, 10
+  index: -1
+1dt_bg_quan13
+  rotate: true
+  xy: 592, 421
+  size: 477, 87
+  orig: 587, 108
+  offset: 58, 7
+  index: -1
+1dt_bg_quan14
+  rotate: true
+  xy: 500, 297
+  size: 491, 90
+  orig: 587, 108
+  offset: 51, 6
+  index: -1
+1dt_bg_quan15
+  rotate: true
+  xy: 406, 283
+  size: 505, 92
+  orig: 587, 108
+  offset: 44, 6
+  index: -1
+1dt_bg_quan16
+  rotate: true
+  xy: 308, 267
+  size: 521, 96
+  orig: 587, 108
+  offset: 36, 4
+  index: -1
+1dt_bg_quan17
+  rotate: true
+  xy: 204, 252
+  size: 536, 102
+  orig: 587, 108
+  offset: 28, 0
+  index: -1
+1dt_bg_quan18
+  rotate: true
+  xy: 100, 235
+  size: 553, 102
+  orig: 587, 108
+  offset: 20, 3
+  index: -1
+1dt_bg_quan19
+  rotate: false
+  xy: 2, 790
+  size: 587, 108
+  orig: 587, 108
+  offset: 0, 0
+  index: -1
+1dt_bg_quan2
+  rotate: false
+  xy: 2, 2
+  size: 344, 68
+  orig: 587, 108
+  offset: 124, 18
+  index: -1
+1dt_bg_quan20
+  rotate: true
+  xy: 2, 200
+  size: 588, 96
+  orig: 588, 96
+  offset: 0, 0
+  index: -1
+1dt_bg_quan3
+  rotate: false
+  xy: 2, 129
+  size: 355, 69
+  orig: 587, 108
+  offset: 119, 17
+  index: -1
+1dt_bg_quan4
+  rotate: false
+  xy: 650, 951
+  size: 366, 71
+  orig: 587, 108
+  offset: 113, 16
+  index: -1
+1dt_bg_quan5
+  rotate: true
+  xy: 918, 135
+  size: 376, 73
+  orig: 587, 108
+  offset: 108, 14
+  index: -1
+1dt_bg_quan6
+  rotate: true
+  xy: 843, 111
+  size: 387, 73
+  orig: 587, 108
+  offset: 103, 15
+  index: -1
+1dt_bg_quan7
+  rotate: true
+  xy: 766, 99
+  size: 399, 75
+  orig: 587, 108
+  offset: 97, 14
+  index: -1
+1dt_bg_quan8
+  rotate: true
+  xy: 687, 72
+  size: 411, 77
+  orig: 587, 108
+  offset: 90, 13
+  index: -1
+1dt_bg_quan9
+  rotate: true
+  xy: 930, 525
+  size: 424, 78
+  orig: 587, 108
+  offset: 85, 12
+  index: -1
+DT_BG_quan1
+  rotate: false
+  xy: 2, 900
+  size: 646, 122
+  orig: 646, 122
+  offset: 0, 0
+  index: -1
+DT_BG_xin1
+  rotate: false
+  xy: 348, 2
+  size: 226, 68
+  orig: 226, 68
+  offset: 0, 0
+  index: -1
+DT_BG_xin2
+  rotate: true
+  xy: 592, 91
+  size: 328, 93
+  orig: 328, 93
+  offset: 0, 0
+  index: -1

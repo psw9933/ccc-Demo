@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '9e63d6AFe9A6pSY0+9KWE4l', 'hallView');
-// Script/hall/hallView.ts
+cc._RF.push(module, '9e63d6AFe9A6pSY0+9KWE4l', 'battleView');
+// Script/battle/battleView.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -20,10 +20,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var gameProtocol_1 = require("../game/gameProtocol");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var hallView = /** @class */ (function (_super) {
-    __extends(hallView, _super);
-    function hallView() {
+var battleView = /** @class */ (function (_super) {
+    __extends(battleView, _super);
+    function battleView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.PlayerPre = null;
         _this.JoystickPre = null;
@@ -31,43 +32,57 @@ var hallView = /** @class */ (function (_super) {
         _this.playerNode = null;
         return _this;
     }
-    hallView.prototype.onLoad = function () {
+    battleView.prototype.onLoad = function () {
+        this.initEvent();
         this.initPlayer();
         this.initJoystick();
     };
-    hallView.prototype.initJoystick = function () {
+    battleView.prototype.initEvent = function () {
+        cc.systemEvent.on(gameProtocol_1.gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
+    };
+    battleView.prototype.clearEvent = function () {
+        cc.systemEvent.off(gameProtocol_1.gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
+    };
+    battleView.prototype.onDestroy = function () {
+        this.clearEvent();
+    };
+    battleView.prototype.initJoystick = function () {
         this.JoystickNode = cc.instantiate(this.JoystickPre);
         this.JoystickNode.getComponent('joyStickControl').playerControl = this.playerNode.getComponent('playerControl');
         this.JoystickNode.parent = this.node;
         this.JoystickNode.active = false;
     };
-    hallView.prototype.initPlayer = function () {
+    battleView.prototype.initPlayer = function () {
         this.playerNode = cc.instantiate(this.PlayerPre);
         this.playerNode.getComponent('playerControl').hallView = this;
         this.playerNode.parent = this.node;
         this.playerNode.setPosition(-554, -255);
     };
-    hallView.prototype.clickShowJoystick = function (event) {
+    battleView.prototype.clickShowJoystick = function (event) {
         this.JoystickNode.active = true;
         this.JoystickNode.setPosition(-485, -258);
     };
-    hallView.prototype.checkInMovableArea = function (loaction) {
-        // var point =this.node.convertToNodeSpaceAR(loaction);
-        // cc.log(point)
+    battleView.prototype.onDisplayJoystick = function () {
+        this.JoystickNode.active = false;
+    };
+    battleView.prototype.clickShootingBtn = function () {
+        cc.systemEvent.emit(gameProtocol_1.gameProtocol.event.playerShooting);
+    };
+    battleView.prototype.checkInMovableArea = function (loaction) {
         var bool = cc.Intersection.pointInPolygon(loaction, this.node.getComponent(cc.PolygonCollider).points);
         return bool;
     };
     __decorate([
         property(cc.Prefab)
-    ], hallView.prototype, "PlayerPre", void 0);
+    ], battleView.prototype, "PlayerPre", void 0);
     __decorate([
         property(cc.Prefab)
-    ], hallView.prototype, "JoystickPre", void 0);
-    hallView = __decorate([
+    ], battleView.prototype, "JoystickPre", void 0);
+    battleView = __decorate([
         ccclass
-    ], hallView);
-    return hallView;
+    ], battleView);
+    return battleView;
 }(cc.Component));
-exports.default = hallView;
+exports.default = battleView;
 
 cc._RF.pop();

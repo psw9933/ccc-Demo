@@ -1,0 +1,20 @@
+
+DT_BG.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+DT_guang1
+  rotate: true
+  xy: 150, 131
+  size: 98, 258
+  orig: 98, 258
+  offset: 0, 0
+  index: -1
+DT_guang2
+  rotate: false
+  xy: 2, 2
+  size: 146, 227
+  orig: 146, 227
+  offset: 0, 0
+  index: -1

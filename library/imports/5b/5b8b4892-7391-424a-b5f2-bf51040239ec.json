@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "monyeBg",
+    "texture": "17718812-13d1-47ca-a4fa-b36a75c2d3db",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      200,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      200,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

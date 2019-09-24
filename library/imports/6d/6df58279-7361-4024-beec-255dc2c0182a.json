@@ -168,7 +168,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e0ba9767-08e4-4711-8c53-76f8f1a1dfa0"
+      "__uuid__": "eeef9bcf-5f2c-4aaa-aa84-30d91ede2231"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -820,7 +820,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1060,7 +1060,7 @@
     "editingDidEnded": [],
     "editingReturn": [],
     "_N$backgroundImage": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_N$returnType": 0,
     "_N$inputFlag": 5,
@@ -1243,7 +1243,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1483,7 +1483,7 @@
     "editingDidEnded": [],
     "editingReturn": [],
     "_N$backgroundImage": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_N$returnType": 0,
     "_N$inputFlag": 0,
@@ -1666,7 +1666,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1906,7 +1906,7 @@
     "editingDidEnded": [],
     "editingReturn": [],
     "_N$backgroundImage": {
-      "__uuid__": "cf81d3d6-5b86-41d4-843c-4a620e0c1632"
+      "__uuid__": "ee75c8b3-3a2b-4030-9fca-d482185335d5"
     },
     "_N$returnType": 0,
     "_N$inputFlag": 0,
@@ -2124,7 +2124,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "39121bbd-48c7-4b76-a781-52854a332c32"
+      "__uuid__": "488f3045-eb10-48ac-b6b7-06f386c8e4af"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -2412,7 +2412,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "39121bbd-48c7-4b76-a781-52854a332c32"
+      "__uuid__": "488f3045-eb10-48ac-b6b7-06f386c8e4af"
     },
     "_type": 0,
     "_sizeMode": 1,

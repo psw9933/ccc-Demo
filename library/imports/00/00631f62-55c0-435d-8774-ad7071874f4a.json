@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "contra3",
+    "texture": "f76d8370-3211-4d01-8323-ec199df89866",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      508,
+      510
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

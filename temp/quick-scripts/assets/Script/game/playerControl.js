@@ -21,13 +21,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var gameProtocol_1 = require("./gameProtocol");
-var hallView_1 = require("../hall/hallView");
+var battleView_1 = require("../battle/battleView");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var playerControl = /** @class */ (function (_super) {
     __extends(playerControl, _super);
     function playerControl() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.hallView = null;
+        _this.battleView = null;
         /**移动方向 */
         _this.moveDir = new cc.Vec2(0, 1);
         /**速度级别 */
@@ -49,10 +49,20 @@ var playerControl = /** @class */ (function (_super) {
         return _this;
     }
     playerControl.prototype.onLoad = function () {
+        this.initEvent();
         this.spine = this.node.getComponent(sp.Skeleton);
         this._setMix('walk', 'run');
         this._setMix('run', 'jump');
         this._setMix('walk', 'jump');
+    };
+    playerControl.prototype.initEvent = function () {
+        cc.systemEvent.on(gameProtocol_1.gameProtocol.event.playerShooting, this.Shooting, this);
+    };
+    playerControl.prototype.clearEvent = function () {
+        cc.systemEvent.off(gameProtocol_1.gameProtocol.event.playerShooting, this.Shooting, this);
+    };
+    playerControl.prototype.onDestroy = function () {
+        this.clearEvent();
     };
     playerControl.prototype._setMix = function (anim1, anim2) {
         this.spine.setMix(anim1, anim2, this.mixTime);
@@ -69,9 +79,13 @@ var playerControl = /** @class */ (function (_super) {
         }
         var newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
         //碰撞体检查newPos在可移动区域范围内
-        if (this.hallView.checkInMovableArea(newPos)) {
+        if (this.battleView.checkInMovableArea(newPos)) {
             this.node.setPosition(newPos);
         }
+    };
+    playerControl.prototype.Shooting = function () {
+        cc.log("Shooting");
+        this.spine.setAnimation(1, 'shoot', false);
     };
     playerControl.prototype.update = function (dt) {
         switch (this._speedType) {
@@ -116,8 +130,8 @@ var playerControl = /** @class */ (function (_super) {
         this.spine.setAnimation(0, aniName, loop);
     };
     __decorate([
-        property(hallView_1.default)
-    ], playerControl.prototype, "hallView", void 0);
+        property(battleView_1.default)
+    ], playerControl.prototype, "battleView", void 0);
     __decorate([
         property(cc.v2)
     ], playerControl.prototype, "moveDir", void 0);
