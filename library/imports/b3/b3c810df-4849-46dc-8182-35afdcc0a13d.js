@@ -27,29 +27,128 @@ var NewClass = /** @class */ (function (_super) {
     function NewClass() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contraShow = null;
+        _this.contraNode = null;
+        _this.heroItem = null;
+        _this.weaponItem = null;
+        _this.heroSPA = null;
         _this.showHeroIndex = null;
+        _this.heros = null;
+        _this.weapons = null;
+        _this.isClickedApproachAni = true;
         return _this;
         // update (dt) {}
     }
     NewClass.prototype.onLoad = function () {
         this.showHeroIndex = 0;
-        this.initContraShow();
+        this.heros = gameRes_1.playerRes.heroNames;
+        this.weapons = gameRes_1.playerRes.contraGunName;
+        this.initHerosList();
+        this.initWeaponList();
+        this.initContraShow(this.heros[0]);
     };
-    NewClass.prototype.initContraShow = function () {
-        var path = gameRes_1.playerRes.thanus.aniPath;
-        cc.loader.loadRes(path, sp.SkeletonData, function (err, SkeletonData) {
+    /**
+     * 初始化英雄列表
+     */
+    NewClass.prototype.initHerosList = function () {
+        cc.find("choiceHero/view/content", this.node).active = true;
+        for (var index = 0; index < this.heros.length; index++) {
+            var _item = cc.instantiate(this.heroItem);
+            if (index == 0) {
+                _item.getComponent(cc.Toggle).isChecked = true;
+            }
+            _item.getChildByName('headAltar').getComponent(cc.Sprite).spriteFrame = this.heroSPA.getSpriteFrame('head_' + this.heros[index]);
+            _item.getChildByName('name').getComponent(cc.Label).string = this.heros[index];
+            _item.active = true;
+            _item.getComponent(cc.Button).clickEvents[0].customEventData = this.heros[index];
+            //cc.log(_item.getComponent(cc.Button))
+            _item.parent = cc.find("choiceHero/view/content", this.node);
+        }
+    };
+    /**
+    * 初始化武器列表
+    */
+    NewClass.prototype.initWeaponList = function () {
+        cc.find("choiceWeapon/view/content", this.node).active = true;
+        for (var index = 0; index < this.weapons.length; index++) {
+            var _item = cc.instantiate(this.weaponItem);
+            if (index == 0) {
+                _item.getChildByName('default').active = true;
+                _item.getComponent(cc.Toggle).isChecked = true;
+            }
+            _item.getChildByName('weaponAltar').getComponent(cc.Sprite).spriteFrame = this.heroSPA.getSpriteFrame('gun_' + index);
+            _item.getChildByName('gunLevel').getComponent(cc.Sprite).spriteFrame = this.heroSPA.getSpriteFrame('gunLevel1');
+            _item.active = true;
+            cc.log(_item.getComponent(cc.Button));
+            _item.getComponent(cc.Button).clickEvents[0].customEventData = index.toString();
+            _item.parent = cc.find("choiceWeapon/view/content", this.node);
+        }
+    };
+    /**
+     * 初始化英雄展示 默认第一个英雄
+     * @name 英雄名
+     */
+    NewClass.prototype.initContraShow = function (name) {
+        var path = gameRes_1.playerRes[name].aniPath;
+        var self = this;
+        cc.loader.loadRes(path, sp.SkeletonData, function (err, _SkeletonData) {
             if (err) {
                 cc.error(err.message || err);
                 return;
             }
-            cc.log(SkeletonData);
+            else {
+                //cc.log(_SkeletonData)
+                self.contraShow.skeletonData = _SkeletonData;
+                self.playApproachAni();
+            }
         });
+    };
+    /**
+     * 英雄入场动画 从上方旋转一身后站着变成等候动画
+     */
+    NewClass.prototype.playApproachAni = function () {
+        var _this = this;
+        this.contraNode.setPosition(0, 100);
+        this.contraNode.setRotation(0);
+        var approachTime = 1;
+        this.contraShow.setMix('idle', 'roll2', 0.2);
+        this.node.getChildByName('light').active = false;
+        this.scheduleOnce(function () {
+            _this.node.getChildByName('light').active = true;
+            _this.isClickedApproachAni = true;
+        }, approachTime);
+        this.contraShow.setAnimation(0, 'roll2', true);
+        this.contraShow.addAnimation(0, 'idle', true, approachTime);
+        this.contraNode.runAction(cc.spawn(cc.rotateBy(approachTime, 360), cc.moveTo(approachTime, cc.v2(0, -290)).easing(cc.easeIn(approachTime))));
+        this.contraShow.setSkin('gun0');
+    };
+    NewClass.prototype.clickSwithcHero = function (event, customEventData) {
+        //防止短时间多次点击
+        if (!this.isClickedApproachAni)
+            return;
+        this.isClickedApproachAni = false;
+        this.initContraShow(customEventData);
+    };
+    NewClass.prototype.clickSwithcWeapon = function (event, customEventData) {
+        var gunName = 'gun' + customEventData;
+        this.contraShow.setSkin(gunName);
     };
     NewClass.prototype.start = function () {
     };
     __decorate([
         property(sp.Skeleton)
     ], NewClass.prototype, "contraShow", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "contraNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "heroItem", void 0);
+    __decorate([
+        property(cc.Node)
+    ], NewClass.prototype, "weaponItem", void 0);
+    __decorate([
+        property(cc.SpriteAtlas)
+    ], NewClass.prototype, "heroSPA", void 0);
     NewClass = __decorate([
         ccclass
     ], NewClass);

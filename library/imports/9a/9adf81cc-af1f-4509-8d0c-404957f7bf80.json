@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gunLevel2",
+    "texture": "52b04b37-3eee-4ed6-813b-c18ca8620d6a",
+    "atlas": "bebc77ff-f5c1-4bac-b9e8-556fd2fd8790",
+    "rect": [
+      969,
+      240,
+      73,
+      33
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      73,
+      33
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
