@@ -33,6 +33,8 @@ var playerControl = /** @class */ (function (_super) {
         _this.battleView = null;
         /**移动方向 */
         _this.moveDir = new cc.Vec2(0, 1);
+        /**跳跃方向 */
+        _this.jumpDir = new cc.Vec2(0, 0);
         /**速度级别 */
         _this._speedType = gameProtocol_1.gameProtocol.playerControl.speedType.STOP;
         /**角色运动类型 */
@@ -62,7 +64,7 @@ var playerControl = /** @class */ (function (_super) {
         this.initEvent();
         this.spine = this.node.getComponent(sp.Skeleton);
         this.node.scale = this.playerScale;
-        this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
+        this.setPlayerAnimation('idle', true);
         // this._setMix('walk', 'run');
         // this._setMix('run', 'jump');
         // this._setMix('walk', 'jump');
@@ -97,12 +99,40 @@ var playerControl = /** @class */ (function (_super) {
         // }
         //cc.log(this.node.getPosition())
     };
+    // methods
+    playerControl.prototype.jump = function () {
+        var _this = this;
+        var jumpForce = null;
+        //人物面向转身
+        if (this.Orientation) {
+            jumpForce = new cc.Vec2(5, 5);
+        }
+        else {
+            jumpForce = new cc.Vec2(-5, 5);
+        }
+        var newPos = this.node.position.add(jumpForce);
+        this.node.runAction(cc.sequence(cc.moveTo(1, newPos), cc.callFunc(function () {
+            _this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
+            _this.setPlayerAnimation('run', true);
+        })));
+        //this.node.setPosition(newPos);
+        // //碰撞体检查newPos在可移动区域范围内
+        // if (this.battleView.checkInMovableArea(newPos)) {
+        //     this.node.setPosition(newPos);
+        // }
+        //cc.log(this.node.getPosition())
+    };
     playerControl.prototype.Shooting = function () {
         cc.log("Shooting");
-        this.spine.setAnimation(1, 'shoot', false);
+        if (this.hasAniRun) {
+            this.setPlayerAnimation('run_attack', false);
+        }
+        else {
+            this.setPlayerAnimation('attack', false);
+        }
+        this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
     };
     playerControl.prototype.update = function (dt) {
-        var _this = this;
         //cc.log(this._motionType)
         switch (this._motionType) {
             case gameProtocol_1.gameProtocol.playerControl.motionType.STOP:
@@ -124,13 +154,11 @@ var playerControl = /** @class */ (function (_super) {
                 this.move();
                 break;
             case gameProtocol_1.gameProtocol.playerControl.motionType.JUMP:
-                this.spine.setAnimation(1, "roll2", true);
-                this.moveDir = cc.v2(10, 10);
-                this.schedule(function () {
-                    _this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
-                }, 1);
-                this._moveSpeed = this.normalSpeed;
-                this.move();
+                this.setPlayerAnimation('idle', true);
+                this.jump();
+                break;
+            case gameProtocol_1.gameProtocol.playerControl.motionType.SHOOT:
+                this.Shooting();
                 break;
         }
     };
@@ -152,7 +180,7 @@ var playerControl = /** @class */ (function (_super) {
             this.hasAniStop = true;
             this.hasAniRun = false;
         }
-        this.spine.setAnimation(1, aniName, true);
+        this.spine.setAnimation(1, aniName, loop);
     };
     __decorate([
         property(battleView_1.default)
@@ -160,6 +188,9 @@ var playerControl = /** @class */ (function (_super) {
     __decorate([
         property(cc.v2)
     ], playerControl.prototype, "moveDir", void 0);
+    __decorate([
+        property(cc.v2)
+    ], playerControl.prototype, "jumpDir", void 0);
     __decorate([
         property
     ], playerControl.prototype, "_speedType", void 0);

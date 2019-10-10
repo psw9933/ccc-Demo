@@ -55,7 +55,8 @@ var gameProtocol = {
             LEFT: 0,
             RIGHT: 1,
             STOP: 2,
-            JUMP:3
+            JUMP:3,
+            SHOOT:4
         }),
         /**
          * 位置类型

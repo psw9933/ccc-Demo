@@ -1,6 +1,7 @@
 {
   "version": "1.1.1",
   "windows": {
+    "worker": {},
     "main": {
       "main": true,
       "url": "app://editor/index.html",
@@ -84,6 +85,17 @@
         "cocos-services",
         "scene"
       ]
+    },
+    "about": {
+      "main": false,
+      "url": "app://editor/page/app-about.html",
+      "windowType": "dockable",
+      "x": 760,
+      "y": 430,
+      "width": 400,
+      "height": 200,
+      "layout": null,
+      "panels": []
     }
   },
   "panels": {

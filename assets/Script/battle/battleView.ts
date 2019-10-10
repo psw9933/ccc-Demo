@@ -113,11 +113,12 @@ export default class battleView extends cc.Component {
     }
 
     checkPlayerPosition(){
+        cc.log(this.playerNode.getPosition().y)
         if(this.playerNode.getPosition().y>-280){
-            return true
+            return false
         }
         else{
-            return false
+            return true
         }
     }
     update(dt) {

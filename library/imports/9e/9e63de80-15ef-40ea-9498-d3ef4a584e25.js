@@ -121,11 +121,12 @@ var battleView = /** @class */ (function (_super) {
         this.playerNode.setPosition(_x, _y);
     };
     battleView.prototype.checkPlayerPosition = function () {
+        cc.log(this.playerNode.getPosition().y);
         if (this.playerNode.getPosition().y > -280) {
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     };
     battleView.prototype.update = function (dt) {

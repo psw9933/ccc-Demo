@@ -163,7 +163,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 539.5338265577053
+      "z": 535.2036995387831
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -3274,8 +3274,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 214,
@@ -4161,6 +4161,9 @@
     },
     "jumpBtnNode": {
       "__id__": 76
+    },
+    "shootBtnNode": {
+      "__id__": 70
     },
     "_id": "b5xDVmr+xB4qGGwZ5tOubw"
   },

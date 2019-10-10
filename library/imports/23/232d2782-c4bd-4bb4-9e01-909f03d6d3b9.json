@@ -8,7 +8,8 @@
       "__id__": 1
     },
     "optimizationPolicy": 1,
-    "asyncLoadAssets": false
+    "asyncLoadAssets": false,
+    "readonly": false
   },
   {
     "__type__": "cc.Node",
@@ -35,8 +36,6 @@
       "height": 240
     },
     "_children": [],
-    "_rotationX": 0,
-    "_rotationY": 0,
     "_scaleX": 1,
     "_scaleY": 1,
     "_position": {
@@ -61,7 +60,13 @@
     "_prefab": {
       "__id__": 3
     },
-    "groupIndex": 0
+    "groupIndex": 0,
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
   },
   {
     "__type__": "cc.VideoPlayer",

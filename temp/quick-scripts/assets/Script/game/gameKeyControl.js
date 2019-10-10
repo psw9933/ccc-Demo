@@ -34,6 +34,7 @@ var gameKeyControl = /** @class */ (function (_super) {
         _this.leftMoveBtnNode = null;
         _this.rightMoveBtnNode = null;
         _this.jumpBtnNode = null;
+        _this.shootBtnNode = null;
         return _this;
         // update (dt) {}
     }
@@ -45,9 +46,11 @@ var gameKeyControl = /** @class */ (function (_super) {
         self.leftMoveBtnNode.on(cc.Node.EventType.TOUCH_START, self.leftMove, self);
         self.rightMoveBtnNode.on(cc.Node.EventType.TOUCH_START, self.rightMove, self);
         self.jumpBtnNode.on(cc.Node.EventType.TOUCH_START, self.jump, self);
+        self.shootBtnNode.on(cc.Node.EventType.TOUCH_START, self.shoot, self);
         self.leftMoveBtnNode.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
         self.rightMoveBtnNode.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
         self.jumpBtnNode.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
+        self.shootBtnNode.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
         //self.node.on(cc.Node.EventType.TOUCH_MOVE, self._touchMoveEvent, self);
         // self.node.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
         // self.node.on(cc.Node.EventType.TOUCH_CANCEL, self._touchEndEvent, self);
@@ -64,6 +67,10 @@ var gameKeyControl = /** @class */ (function (_super) {
     gameKeyControl.prototype.jump = function () {
         cc.log('jump');
         this.playerControl._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.JUMP;
+    };
+    gameKeyControl.prototype.shoot = function () {
+        cc.log('jump');
+        this.playerControl._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.SHOOT;
     };
     gameKeyControl.prototype._touchEndEvent = function () {
         cc.log('stop');
@@ -83,6 +90,9 @@ var gameKeyControl = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], gameKeyControl.prototype, "jumpBtnNode", void 0);
+    __decorate([
+        property(cc.Node)
+    ], gameKeyControl.prototype, "shootBtnNode", void 0);
     gameKeyControl = __decorate([
         ccclass
     ], gameKeyControl);

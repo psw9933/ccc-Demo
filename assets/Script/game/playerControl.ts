@@ -12,6 +12,10 @@ export default class playerControl extends cc.Component {
     @property(cc.v2)
     moveDir = new cc.Vec2(0, 1);
 
+    /**跳跃方向 */
+    @property(cc.v2)
+    jumpDir = new cc.Vec2(0, 0);
+
     /**速度级别 */
     @property
     _speedType = gameProtocol.playerControl.speedType.STOP;
@@ -43,14 +47,14 @@ export default class playerControl extends cc.Component {
     //正在播放动画状态
     /**人物朝向 true为右方false为左边 */
     private Orientation: boolean = true
-    private playerScale:any=null;
+    private playerScale: any = null;
     onLoad() {
-        this.playerScale=0.6
+        this.playerScale = 0.6
         this.initEvent()
         this.spine = this.node.getComponent(sp.Skeleton);
         this.node.scale = this.playerScale;
-        this._motionType = gameProtocol.playerControl.motionType.STOP;
-    
+        this.setPlayerAnimation('idle', true);
+
         // this._setMix('walk', 'run');
         // this._setMix('run', 'jump');
         // this._setMix('walk', 'jump');
@@ -76,10 +80,10 @@ export default class playerControl extends cc.Component {
         if (this.Orientation) {
             this.node.scaleX = this.playerScale
         }
-        else{
+        else {
             this.node.scaleX = -this.playerScale
         }
-        
+
         let newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
         this.node.setPosition(newPos);
         // //碰撞体检查newPos在可移动区域范围内
@@ -90,9 +94,40 @@ export default class playerControl extends cc.Component {
 
     }
 
+    // methods
+    jump() {
+        let jumpForce = null
+        //人物面向转身
+        if (this.Orientation) {
+            jumpForce = new cc.Vec2(5, 5);
+        }
+        else {
+            jumpForce = new cc.Vec2(-5, 5);
+        }
+
+        let newPos = this.node.position.add(jumpForce);
+        this.node.runAction(cc.sequence(cc.moveTo(1, newPos), cc.callFunc(() => {
+            this._motionType = gameProtocol.playerControl.motionType.STOP;
+            this.setPlayerAnimation('run', true);
+        })))
+        //this.node.setPosition(newPos);
+        // //碰撞体检查newPos在可移动区域范围内
+        // if (this.battleView.checkInMovableArea(newPos)) {
+        //     this.node.setPosition(newPos);
+        // }
+        //cc.log(this.node.getPosition())
+
+    }
+
     Shooting() {
         cc.log("Shooting")
-        this.spine.setAnimation(1, 'shoot', false);
+        if (this.hasAniRun) {
+            this.setPlayerAnimation('run_attack', false);
+        }
+        else {
+            this.setPlayerAnimation('attack', false);
+        }
+        this._motionType = gameProtocol.playerControl.motionType.STOP;
     }
     private hasAniStop: boolean = false
     private hasAniRun: boolean = false
@@ -101,41 +136,39 @@ export default class playerControl extends cc.Component {
         //cc.log(this._motionType)
         switch (this._motionType) {
             case gameProtocol.playerControl.motionType.STOP:
-                this.setPlayerAnimation('idle',true);
+                this.setPlayerAnimation('idle', true);
                 this._moveSpeed = this.stopSpeed;
                 break;
             case gameProtocol.playerControl.motionType.LEFT:
                 this.Orientation = false;
-                this.setPlayerAnimation('run',true);
+                this.setPlayerAnimation('run', true);
                 this._moveSpeed = this.normalSpeed;
-                this.moveDir=cc.v2(-1, 0);
+                this.moveDir = cc.v2(-1, 0);
                 this.move()
                 break;
             case gameProtocol.playerControl.motionType.RIGHT:
                 this.Orientation = true;
-                this.setPlayerAnimation('run',true);
+                this.setPlayerAnimation('run', true);
                 this._moveSpeed = this.normalSpeed;
-                this.moveDir=cc.v2(1, 0);
+                this.moveDir = cc.v2(1, 0);
                 this.move()
                 break;
             case gameProtocol.playerControl.motionType.JUMP:
-                this.spine.setAnimation(1, "roll2", true);
-                this.moveDir=cc.v2(10, 10);
-                this.schedule(()=>{
-                    this._motionType=gameProtocol.playerControl.motionType.STOP
-                },1)
-                this._moveSpeed = this.normalSpeed;
-                this.move()
+                this.setPlayerAnimation('idle', true);
+                this.jump()
+                break;
+            case gameProtocol.playerControl.motionType.SHOOT:
+                this.Shooting();
                 break;
         }
     }
-    
+
     /**
      * 
      * @param aniName 动画名
      * @param loop:是否循环播放动画
      */
-    setPlayerAnimation(aniName: string,loop:boolean) {
+    setPlayerAnimation(aniName: string, loop: boolean) {
         if (this.hasAniRun && aniName == 'run') return;
         if (this.hasAniStop && aniName == 'idle') return;
 
@@ -148,7 +181,7 @@ export default class playerControl extends cc.Component {
             this.hasAniStop = true;
             this.hasAniRun = false
         }
-        this.spine.setAnimation(1, aniName, true);
+        this.spine.setAnimation(1, aniName, loop);
     }
 }
 export { playerControl }
