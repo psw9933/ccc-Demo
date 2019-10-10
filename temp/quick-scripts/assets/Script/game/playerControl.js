@@ -4,9 +4,12 @@ cc._RF.push(module, '9a2cbPQbxpG4qOT1vL4z4ns', 'playerControl', __filename);
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -31,7 +34,9 @@ var playerControl = /** @class */ (function (_super) {
         /**移动方向 */
         _this.moveDir = new cc.Vec2(0, 1);
         /**速度级别 */
-        _this._speedType = gameProtocol_1.gameProtocol.joystick.SpeedType.STOP;
+        _this._speedType = gameProtocol_1.gameProtocol.playerControl.speedType.STOP;
+        /**角色运动类型 */
+        _this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
         /**最快速度 */
         _this.fastSpeed = 200;
         /**正常速度 */
@@ -44,16 +49,23 @@ var playerControl = /** @class */ (function (_super) {
         _this.movableArea = null;
         _this.mixTime = 0.2;
         //正在播放动画状态
+        /**人物朝向 true为右方false为左边 */
+        _this.Orientation = true;
+        _this.playerScale = null;
+        _this.hasAniStop = false;
         _this.hasAniRun = false;
-        _this.hasAniWalk = false;
+        _this.hasAniJump = false;
         return _this;
     }
     playerControl.prototype.onLoad = function () {
+        this.playerScale = 0.6;
         this.initEvent();
         this.spine = this.node.getComponent(sp.Skeleton);
-        this._setMix('walk', 'run');
-        this._setMix('run', 'jump');
-        this._setMix('walk', 'jump');
+        this.node.scale = this.playerScale;
+        this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
+        // this._setMix('walk', 'run');
+        // this._setMix('run', 'jump');
+        // this._setMix('walk', 'jump');
     };
     playerControl.prototype.initEvent = function () {
         cc.systemEvent.on(gameProtocol_1.gameProtocol.event.playerShooting, this.Shooting, this);
@@ -71,63 +83,76 @@ var playerControl = /** @class */ (function (_super) {
     // methods
     playerControl.prototype.move = function () {
         //人物面向转身
-        if (this.moveDir.x > 0) {
-            this.node.scaleX = 0.2;
+        if (this.Orientation) {
+            this.node.scaleX = this.playerScale;
         }
-        if (this.moveDir.x < 0) {
-            this.node.scaleX = -0.2;
+        else {
+            this.node.scaleX = -this.playerScale;
         }
         var newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
-        //碰撞体检查newPos在可移动区域范围内
-        if (this.battleView.checkInMovableArea(newPos)) {
-            this.node.setPosition(newPos);
-        }
+        this.node.setPosition(newPos);
+        // //碰撞体检查newPos在可移动区域范围内
+        // if (this.battleView.checkInMovableArea(newPos)) {
+        //     this.node.setPosition(newPos);
+        // }
+        //cc.log(this.node.getPosition())
     };
     playerControl.prototype.Shooting = function () {
         cc.log("Shooting");
         this.spine.setAnimation(1, 'shoot', false);
     };
     playerControl.prototype.update = function (dt) {
-        switch (this._speedType) {
-            case gameProtocol_1.gameProtocol.joystick.SpeedType.STOP:
+        var _this = this;
+        //cc.log(this._motionType)
+        switch (this._motionType) {
+            case gameProtocol_1.gameProtocol.playerControl.motionType.STOP:
+                this.setPlayerAnimation('idle', true);
                 this._moveSpeed = this.stopSpeed;
-                this.hasAniRun = false;
-                this.hasAniWalk = false;
-                this.spine.setAnimation(0, 'idle', true);
                 break;
-            case gameProtocol_1.gameProtocol.joystick.SpeedType.NORMAL:
-                this._moveSpeed = this.normalSpeed;
-                //this.spine.setAnimation(0, 'walk', true);
-                this.setPlayerAnimation('walk', true);
-                this.move();
-                break;
-            case gameProtocol_1.gameProtocol.joystick.SpeedType.FAST:
-                this._moveSpeed = this.fastSpeed;
-                //this.spine.setAnimation(0, 'run', true);
+            case gameProtocol_1.gameProtocol.playerControl.motionType.LEFT:
+                this.Orientation = false;
                 this.setPlayerAnimation('run', true);
+                this._moveSpeed = this.normalSpeed;
+                this.moveDir = cc.v2(-1, 0);
                 this.move();
                 break;
-            default:
+            case gameProtocol_1.gameProtocol.playerControl.motionType.RIGHT:
+                this.Orientation = true;
+                this.setPlayerAnimation('run', true);
+                this._moveSpeed = this.normalSpeed;
+                this.moveDir = cc.v2(1, 0);
+                this.move();
+                break;
+            case gameProtocol_1.gameProtocol.playerControl.motionType.JUMP:
+                this.spine.setAnimation(1, "roll2", true);
+                this.moveDir = cc.v2(10, 10);
+                this.schedule(function () {
+                    _this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
+                }, 1);
+                this._moveSpeed = this.normalSpeed;
+                this.move();
                 break;
         }
     };
     /**
      *
      * @param aniName 动画名
-     * @param loop 是否循环播放
+     * @param loop:是否循环播放动画
      */
     playerControl.prototype.setPlayerAnimation = function (aniName, loop) {
         if (this.hasAniRun && aniName == 'run')
             return;
-        if (this.hasAniWalk && aniName == 'walk')
+        if (this.hasAniStop && aniName == 'idle')
             return;
         if (aniName == 'run') {
             this.hasAniRun = true;
+            this.hasAniStop = false;
         }
-        if (aniName == 'walk') {
-            this.hasAniWalk = true;
+        if (aniName == 'idle') {
+            this.hasAniStop = true;
+            this.hasAniRun = false;
         }
-        this.spine.setAnimation(0, aniName, loop);
+        this.spine.setAnimation(1, aniName, true);
     };
     __decorate([
         property(battleView_1.default)
@@ -138,6 +163,9 @@ var playerControl = /** @class */ (function (_super) {
     __decorate([
         property
     ], playerControl.prototype, "_speedType", void 0);
+    __decorate([
+        property
+    ], playerControl.prototype, "_motionType", void 0);
     __decorate([
         property(cc.Integer)
     ], playerControl.prototype, "fastSpeed", void 0);

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "billboard",
+    "texture": "ee50e514-523d-486d-b926-b2ffca3354be",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      718,
+      572
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      718,
+      573
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

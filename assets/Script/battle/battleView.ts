@@ -1,61 +1,139 @@
 import {gameProtocol} from "../game/gameProtocol"
+import { playerRes } from "../game/gameRes"
 const {ccclass, property} = cc._decorator;
+import GameInfo from "../module/GameInfo"
 
 @ccclass
 export default class battleView extends cc.Component {
+
+
     @property(cc.Prefab)
     PlayerPre:cc.Prefab=null;
 
-    @property(cc.Prefab)
-    JoystickPre:cc.Prefab=null;
+    /**角色运动类型 */
+    @property
+    actionType = gameProtocol.playerControl.actionType.inTheAir;
 
-    private JoystickNode=null
-    private playerNode=null
+    // @property(cc.Prefab)
+    // JoystickPre:cc.Prefab=null;
+
+     btnControlNode=null
+     playerNode:any=null
+     roleAniName:any=null;
+     roleHealthValue:any=null;
+     roleWeaponName:any=null;
+
+     landArea:any=null;
+     _actionType:any=null;
     onLoad () {
-        this.initEvent()
+        //this.initEvent()
+        this.initRoleInfo();
         this.initPlayer();
-        this.initJoystick()
+        this.playerNode.parent=this.node;
+        this.initBtnControl();
+        this.initCollisionArea()
     }
 
-    private initEvent() {
-        cc.systemEvent.on(gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
+    initBtnControl(){
+        cc.find('operationMenu',this.node).getComponent('gameKeyControl').playerControl=this.playerNode.getComponent('playerControl');
     }
-    private clearEvent() {
-        cc.systemEvent.off(gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
+    initCollisionArea(){
+        this.landArea=cc.find('background/land',this.node).getComponent(cc.BoxCollider)
+        cc.log(this.landArea)
     }
-    onDestroy() {
-        this.clearEvent()
-    }
-
-    initJoystick(){
-        this.JoystickNode=cc.instantiate(this.JoystickPre);
-        this.JoystickNode.getComponent('joyStickControl').playerControl=this.playerNode.getComponent('playerControl');
-        this.JoystickNode.parent=this.node;
-        this.JoystickNode.active=false
-    }
-
     initPlayer(){
         this.playerNode=cc.instantiate(this.PlayerPre);
-        this.playerNode.getComponent('playerControl').hallView=this;
-        this.playerNode.parent=this.node;
-        this.playerNode.setPosition(-554,-255)
+        this.playerNode.getComponent(sp.SkeletonData);
+        this.playerNode.parent=this.node
+        this.initPlayerPosition();
+
+        let path = playerRes[this.roleAniName].aniPath;
+        let self = this;
+        cc.loader.loadRes(path, sp.SkeletonData, function (err, _SkeletonData) {
+            if (err) {
+                cc.error(err.message || err);
+                return;
+            }
+            else {
+                
+                self.playerNode.getComponent(sp.Skeleton).skeletonData = _SkeletonData;
+                self.playerNode.getComponent(sp.Skeleton).setSkin(self.roleWeaponName)
+            }
+        });
     }
 
-    clickShowJoystick(event){
-        this.JoystickNode.active=true
-        this.JoystickNode.setPosition(-485,-258)
+    initPlayerPosition(){
+        let c_pos=cc.find('background/circle',this.node).getPosition();
+        let _x=c_pos.x;
+        let _y=c_pos.y+3;
+        this.playerNode.setPosition(_x,_y)
     }
 
-    onDisplayJoystick(){
-        this.JoystickNode.active=false
+    showHealthValue(){
+        let healthNode=cc.find('background/health',this.node);
+        let _iconItem=cc.find('lifeIcon',healthNode);
+
+        for(let i=0;i<this.roleHealthValue;i++){
+            let iconItem=cc.instantiate(_iconItem);
+            iconItem.parent=healthNode;
+            iconItem.active=true
+        }
     }
 
-    clickShootingBtn(){
-        cc.systemEvent.emit(gameProtocol.event.playerShooting);
+    initRoleInfo(){
+        let roleInfo=GameInfo.getInstance().returnRoleInfo()
+        this.roleAniName=roleInfo.roleAniName;
+        this.roleWeaponName=roleInfo.roleWeaponName;
+        this.roleHealthValue=GameInfo.getInstance().returnRoleInfo().roleMaxHealth;
+        this.showHealthValue()
+        console.log(roleInfo)
     }
 
-    checkInMovableArea(loaction){
-        var bool = cc.Intersection.pointInPolygon(loaction, this.node.getComponent(cc.PolygonCollider).points)
-        return bool
+    collisionDetection(){
+    // @property(cc.PolygonCollider)
+    // longarea: cc.PolygonCollider = null
+
+    // @property(cc.PolygonCollider)
+    // huarea: cc.PolygonCollider = null
+
+    // @property(cc.PolygonCollider)
+    // hearea: cc.PolygonCollider = null
+    // let p_pos=this.playerNode.getPosition();
+    //     var point = cc.find('background/land', this.node).convertToWorldSpaceAR(loaction);
+    //     // var bool = cc.Intersection.pointInPolygon(point, this.hearea.points)
+    //     let bool=cc.Intersection.rectRect(this.playerNode, this.landArea.node)
+    //     return bool
+    }
+
+    _onPlayerDropDown(){
+        let p_pos=this.playerNode.getPosition();
+        let _x=p_pos.x;
+        let _y=p_pos.y-1;
+        this.playerNode.setPosition(_x,_y)
+    }
+
+    checkPlayerPosition(){
+        if(this.playerNode.getPosition().y>-280){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    update(dt) {
+        if(this.checkPlayerPosition()) return;
+        this._onPlayerDropDown()
+        cc.log('DropDown')
+        //let bool=cc.Intersection.rectRect(this.playerNode, this.landArea.node)
+        // var point = this.playerNode.getChildByName('foot').convertToWorldSpaceAR(cc.v2(0, 0));;
+        // cc.log(point)
+        // cc.log(this.playerNode.getPosition())
+        // switch (this.actionType) {
+        //     case gameProtocol.playerControl.actionType.onLand:
+        //             return;
+        //     case gameProtocol.playerControl.actionType.inTheAir:
+        //             this._onPlayerDropDown();
+        //             break;
+        // }
     }
 }

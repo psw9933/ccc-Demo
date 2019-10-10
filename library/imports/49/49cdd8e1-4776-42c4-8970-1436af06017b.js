@@ -13,9 +13,12 @@ cc._RF.push(module, '49cddjhR3ZCxIlwFDavBgF7', 'hallView');
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -29,26 +32,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var GameInfo_1 = require("../module/GameInfo");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var hallView = /** @class */ (function (_super) {
     __extends(hallView, _super);
     function hallView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.label = null;
-        _this.text = 'hello';
+        _this.rolePanel = null;
+        // LIFE-CYCLE CALLBACKS:
+        _this.rolePanelNode = null;
         return _this;
         // update (dt) {}
     }
-    // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
+    hallView.prototype.onLoad = function () {
+        this.rolePanelNode = cc.instantiate(this.rolePanel);
+        this.rolePanelNode.parent = this.node;
+    };
     hallView.prototype.start = function () {
     };
+    hallView.prototype.clickBackBtn = function () {
+    };
+    hallView.prototype.clickPlayBtn = function () {
+        var _roleAniName = this.rolePanelNode.getComponent('rolePanel').roleAniName;
+        var _roleWeaponName = this.rolePanelNode.getComponent('rolePanel').roleWeaponName;
+        var _roleHealthValue = this.rolePanelNode.getComponent('rolePanel').roleHealthValue;
+        GameInfo_1.default.getInstance().initRoleInfo(_roleAniName, _roleWeaponName, _roleHealthValue);
+        cc.director.loadScene('battle');
+    };
     __decorate([
-        property(cc.Label)
-    ], hallView.prototype, "label", void 0);
-    __decorate([
-        property
-    ], hallView.prototype, "text", void 0);
+        property(cc.Prefab)
+    ], hallView.prototype, "rolePanel", void 0);
     hallView = __decorate([
         ccclass
     ], hallView);

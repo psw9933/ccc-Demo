@@ -4,9 +4,12 @@ cc._RF.push(module, '9e63d6AFe9A6pSY0+9KWE4l', 'battleView', __filename);
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -21,63 +24,133 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var gameProtocol_1 = require("../game/gameProtocol");
+var gameRes_1 = require("../game/gameRes");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+var GameInfo_1 = require("../module/GameInfo");
 var battleView = /** @class */ (function (_super) {
     __extends(battleView, _super);
     function battleView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.PlayerPre = null;
-        _this.JoystickPre = null;
-        _this.JoystickNode = null;
+        /**角色运动类型 */
+        _this.actionType = gameProtocol_1.gameProtocol.playerControl.actionType.inTheAir;
+        // @property(cc.Prefab)
+        // JoystickPre:cc.Prefab=null;
+        _this.btnControlNode = null;
         _this.playerNode = null;
+        _this.roleAniName = null;
+        _this.roleHealthValue = null;
+        _this.roleWeaponName = null;
+        _this.landArea = null;
+        _this._actionType = null;
         return _this;
     }
     battleView.prototype.onLoad = function () {
-        this.initEvent();
+        //this.initEvent()
+        this.initRoleInfo();
         this.initPlayer();
-        this.initJoystick();
+        this.playerNode.parent = this.node;
+        this.initBtnControl();
+        this.initCollisionArea();
     };
-    battleView.prototype.initEvent = function () {
-        cc.systemEvent.on(gameProtocol_1.gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
+    battleView.prototype.initBtnControl = function () {
+        cc.find('operationMenu', this.node).getComponent('gameKeyControl').playerControl = this.playerNode.getComponent('playerControl');
     };
-    battleView.prototype.clearEvent = function () {
-        cc.systemEvent.off(gameProtocol_1.gameProtocol.event.displayJoyStick, this.onDisplayJoystick, this);
-    };
-    battleView.prototype.onDestroy = function () {
-        this.clearEvent();
-    };
-    battleView.prototype.initJoystick = function () {
-        this.JoystickNode = cc.instantiate(this.JoystickPre);
-        this.JoystickNode.getComponent('joyStickControl').playerControl = this.playerNode.getComponent('playerControl');
-        this.JoystickNode.parent = this.node;
-        this.JoystickNode.active = false;
+    battleView.prototype.initCollisionArea = function () {
+        this.landArea = cc.find('background/land', this.node).getComponent(cc.BoxCollider);
+        cc.log(this.landArea);
     };
     battleView.prototype.initPlayer = function () {
         this.playerNode = cc.instantiate(this.PlayerPre);
-        this.playerNode.getComponent('playerControl').hallView = this;
+        this.playerNode.getComponent(sp.SkeletonData);
         this.playerNode.parent = this.node;
-        this.playerNode.setPosition(-554, -255);
+        this.initPlayerPosition();
+        var path = gameRes_1.playerRes[this.roleAniName].aniPath;
+        var self = this;
+        cc.loader.loadRes(path, sp.SkeletonData, function (err, _SkeletonData) {
+            if (err) {
+                cc.error(err.message || err);
+                return;
+            }
+            else {
+                self.playerNode.getComponent(sp.Skeleton).skeletonData = _SkeletonData;
+                self.playerNode.getComponent(sp.Skeleton).setSkin(self.roleWeaponName);
+            }
+        });
     };
-    battleView.prototype.clickShowJoystick = function (event) {
-        this.JoystickNode.active = true;
-        this.JoystickNode.setPosition(-485, -258);
+    battleView.prototype.initPlayerPosition = function () {
+        var c_pos = cc.find('background/circle', this.node).getPosition();
+        var _x = c_pos.x;
+        var _y = c_pos.y + 3;
+        this.playerNode.setPosition(_x, _y);
     };
-    battleView.prototype.onDisplayJoystick = function () {
-        this.JoystickNode.active = false;
+    battleView.prototype.showHealthValue = function () {
+        var healthNode = cc.find('background/health', this.node);
+        var _iconItem = cc.find('lifeIcon', healthNode);
+        for (var i = 0; i < this.roleHealthValue; i++) {
+            var iconItem = cc.instantiate(_iconItem);
+            iconItem.parent = healthNode;
+            iconItem.active = true;
+        }
     };
-    battleView.prototype.clickShootingBtn = function () {
-        cc.systemEvent.emit(gameProtocol_1.gameProtocol.event.playerShooting);
+    battleView.prototype.initRoleInfo = function () {
+        var roleInfo = GameInfo_1.default.getInstance().returnRoleInfo();
+        this.roleAniName = roleInfo.roleAniName;
+        this.roleWeaponName = roleInfo.roleWeaponName;
+        this.roleHealthValue = GameInfo_1.default.getInstance().returnRoleInfo().roleMaxHealth;
+        this.showHealthValue();
+        console.log(roleInfo);
     };
-    battleView.prototype.checkInMovableArea = function (loaction) {
-        var bool = cc.Intersection.pointInPolygon(loaction, this.node.getComponent(cc.PolygonCollider).points);
-        return bool;
+    battleView.prototype.collisionDetection = function () {
+        // @property(cc.PolygonCollider)
+        // longarea: cc.PolygonCollider = null
+        // @property(cc.PolygonCollider)
+        // huarea: cc.PolygonCollider = null
+        // @property(cc.PolygonCollider)
+        // hearea: cc.PolygonCollider = null
+        // let p_pos=this.playerNode.getPosition();
+        //     var point = cc.find('background/land', this.node).convertToWorldSpaceAR(loaction);
+        //     // var bool = cc.Intersection.pointInPolygon(point, this.hearea.points)
+        //     let bool=cc.Intersection.rectRect(this.playerNode, this.landArea.node)
+        //     return bool
+    };
+    battleView.prototype._onPlayerDropDown = function () {
+        var p_pos = this.playerNode.getPosition();
+        var _x = p_pos.x;
+        var _y = p_pos.y - 1;
+        this.playerNode.setPosition(_x, _y);
+    };
+    battleView.prototype.checkPlayerPosition = function () {
+        if (this.playerNode.getPosition().y > -280) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    battleView.prototype.update = function (dt) {
+        if (this.checkPlayerPosition())
+            return;
+        this._onPlayerDropDown();
+        cc.log('DropDown');
+        //let bool=cc.Intersection.rectRect(this.playerNode, this.landArea.node)
+        // var point = this.playerNode.getChildByName('foot').convertToWorldSpaceAR(cc.v2(0, 0));;
+        // cc.log(point)
+        // cc.log(this.playerNode.getPosition())
+        // switch (this.actionType) {
+        //     case gameProtocol.playerControl.actionType.onLand:
+        //             return;
+        //     case gameProtocol.playerControl.actionType.inTheAir:
+        //             this._onPlayerDropDown();
+        //             break;
+        // }
     };
     __decorate([
         property(cc.Prefab)
     ], battleView.prototype, "PlayerPre", void 0);
     __decorate([
-        property(cc.Prefab)
-    ], battleView.prototype, "JoystickPre", void 0);
+        property
+    ], battleView.prototype, "actionType", void 0);
     battleView = __decorate([
         ccclass
     ], battleView);

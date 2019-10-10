@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "obstacle.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "box": {
+      "__uuid__": "2c3e9b85-706c-4b19-9564-898ca977a8ad"
+    },
+    "bucket": {
+      "__uuid__": "6b5bce5b-ea0b-44e7-9a46-ef17d6a14153"
+    },
+    "circle": {
+      "__uuid__": "270dbfc7-9f41-4f1b-8884-4e27a013d330"
+    },
+    "floor": {
+      "__uuid__": "bb42753d-3ab3-48e7-9979-0a89b7b2cead"
+    },
+    "stand": {
+      "__uuid__": "93567e7f-4eb6-447d-9aa7-5cc0f5503858"
+    },
+    "stone1": {
+      "__uuid__": "93d7b795-c930-4f70-9f3e-47bb574c47f1"
+    },
+    "stone2": {
+      "__uuid__": "8890c7ce-445d-4998-9d9a-a82c25515295"
+    }
+  }
+}

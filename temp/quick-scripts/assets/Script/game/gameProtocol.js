@@ -45,6 +45,33 @@ var gameProtocol = {
             NORMAL: 1,
             FAST: 2
         }),
+    },
+    /**
+     * player控制
+     */
+    playerControl: {
+        /**
+         * 移动类型
+         */
+        motionType: cc.Enum({
+            LEFT: 0,
+            RIGHT: 1,
+            STOP: 2,
+            JUMP: 3
+        }),
+        /**
+         * 位置类型
+         */
+        actionType: cc.Enum({
+            onLand: 0,
+            inTheAir: 1,
+            jumpUp: 2,
+        }),
+        speedType: cc.Enum({
+            STOP: 0,
+            NORMAL: 1,
+            FAST: 2
+        }),
     }
 };
 exports.gameProtocol = gameProtocol;
