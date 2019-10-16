@@ -6,10 +6,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -8,
-      "y": -8,
-      "width": 1936,
-      "height": 1056,
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1040,
       "layout": {
         "children": [
           {
@@ -17,9 +17,9 @@
             "children": [
               "hierarchy"
             ],
-            "height": 937,
+            "height": 921,
             "type": "panel",
-            "width": 206
+            "width": 204
           },
           {
             "children": [
@@ -30,23 +30,23 @@
                     "children": [
                       "assets"
                     ],
-                    "height": 669,
+                    "height": 653,
                     "type": "panel",
-                    "width": 244
+                    "width": 241
                   },
                   {
                     "active": 0,
                     "children": [
                       "scene"
                     ],
-                    "height": 669,
+                    "height": 653,
                     "type": "panel",
-                    "width": 1082.96875
+                    "width": 1068
                   }
                 ],
-                "height": 669,
+                "height": 653,
                 "type": "dock-h",
-                "width": 1328.984375
+                "width": 1311
               },
               {
                 "active": 0,
@@ -56,12 +56,12 @@
                 ],
                 "height": 266,
                 "type": "panel",
-                "width": 1328.984375
+                "width": 1311
               }
             ],
-            "height": 937,
+            "height": 921,
             "type": "dock-v",
-            "width": 1328.984375
+            "width": 1311
           },
           {
             "active": 0,
@@ -69,9 +69,9 @@
               "inspector",
               "cocos-services"
             ],
-            "height": 937,
+            "height": 921,
             "type": "panel",
-            "width": 381
+            "width": 385
           }
         ],
         "type": "dock-h"
@@ -85,17 +85,6 @@
         "cocos-services",
         "scene"
       ]
-    },
-    "about": {
-      "main": false,
-      "url": "app://editor/page/app-about.html",
-      "windowType": "dockable",
-      "x": 760,
-      "y": 430,
-      "width": 400,
-      "height": 200,
-      "layout": null,
-      "panels": []
     }
   },
   "panels": {
@@ -104,6 +93,12 @@
       "y": 250,
       "width": 600,
       "height": 565
+    },
+    "builder": {
+      "x": 627,
+      "y": 140,
+      "width": 670,
+      "height": 739
     }
   }
 }

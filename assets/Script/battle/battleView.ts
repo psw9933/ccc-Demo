@@ -10,6 +10,9 @@ export default class battleView extends cc.Component {
     @property(cc.Prefab)
     PlayerPre:cc.Prefab=null;
 
+    @property(cc.Prefab)
+    bulletPre:cc.Prefab=null;
+
     /**角色运动类型 */
     @property
     actionType = gameProtocol.playerControl.actionType.inTheAir;
@@ -25,15 +28,24 @@ export default class battleView extends cc.Component {
 
      landArea:any=null;
      _actionType:any=null;
+
+     bulletPool:any=null;
     onLoad () {
-        //this.initEvent()
+        this.initEvent()
         this.initRoleInfo();
         this.initPlayer();
         this.playerNode.parent=this.node;
         this.initBtnControl();
-        this.initCollisionArea()
+        this.initCollisionArea();
+        
+        this.initBulletPool()
     }
-
+    private initEvent() {
+        cc.systemEvent.on(gameProtocol.event.playerShooting, this.shoot, this);
+    }
+    private clearEvent() {
+        cc.systemEvent.off(gameProtocol.event.playerShooting, this.shoot, this);
+    }
     initBtnControl(){
         cc.find('operationMenu',this.node).getComponent('gameKeyControl').playerControl=this.playerNode.getComponent('playerControl');
     }
@@ -84,6 +96,7 @@ export default class battleView extends cc.Component {
         let roleInfo=GameInfo.getInstance().returnRoleInfo()
         this.roleAniName=roleInfo.roleAniName;
         this.roleWeaponName=roleInfo.roleWeaponName;
+        //this._roleHealth.init(GameInfo.getInstance().returnRoleInfo().roleMaxHealth)
         this.roleHealthValue=GameInfo.getInstance().returnRoleInfo().roleMaxHealth;
         this.showHealthValue()
         console.log(roleInfo)
@@ -105,36 +118,71 @@ export default class battleView extends cc.Component {
     //     return bool
     }
 
-    _onPlayerDropDown(){
-        let p_pos=this.playerNode.getPosition();
-        let _x=p_pos.x;
-        let _y=p_pos.y-1;
-        this.playerNode.setPosition(_x,_y)
+
+    update(dt) {
+        
     }
 
-    checkPlayerPosition(){
-        cc.log(this.playerNode.getPosition().y)
-        if(this.playerNode.getPosition().y>-280){
-            return false
-        }
-        else{
-            return true
+    test(){
+        let area=cc.find('background/frameObstaclePre',this.node).getComponent(cc.PolygonCollider)
+        cc.log(area)
+    }
+
+    private maxBulletCount = 3;
+    initBulletPool(){
+        this.bulletPool = new cc.NodePool();
+        for (let i = 0; i < this.maxBulletCount; ++i) {
+            let bullet = cc.instantiate(this.bulletPre); // 创建节点
+            this.bulletPool.put(bullet); // 通过 put 接口放入对象池
         }
     }
-    update(dt) {
-        if(this.checkPlayerPosition()) return;
-        this._onPlayerDropDown()
-        cc.log('DropDown')
-        //let bool=cc.Intersection.rectRect(this.playerNode, this.landArea.node)
-        // var point = this.playerNode.getChildByName('foot').convertToWorldSpaceAR(cc.v2(0, 0));;
-        // cc.log(point)
-        // cc.log(this.playerNode.getPosition())
-        // switch (this.actionType) {
-        //     case gameProtocol.playerControl.actionType.onLand:
-        //             return;
-        //     case gameProtocol.playerControl.actionType.inTheAir:
-        //             this._onPlayerDropDown();
-        //             break;
-        // }
+
+    shoot(){
+        let bullet=this.createBulletNode();
+        let pos=this.LaunchPosition();
+        this.playBulletAni(bullet,pos)
+    }
+
+    createBulletNode(){
+        let bullet = null;
+        if (this.bulletPool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
+            bullet = this.bulletPool.get();
+        } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+            cc.log('子弹数不够')
+            //或者可以改变最大子弹数
+            // bullet = cc.instantiate(this.bulletPre);
+            // this.maxBulletCount++
+            //this.bulletPool.put(bullet);
+        }
+        return bullet
+    }
+
+    LaunchPosition(){
+        let _pos=this.playerNode.getComponent('playerControl').onMuzzlePos()
+        let playerPos=this.playerNode.getPosition();
+        let _x=playerPos.x+_pos.x;
+        let _y=playerPos.y+_pos.y;
+
+        if(!this.playerNode.getComponent('playerControl').Orientation){
+            _x=playerPos.x-_pos.x;
+        }
+
+        return new cc.Vec2(_x,_y)
+    }
+
+    playBulletAni(bullet,pos){
+        bullet.parent=cc.find('bulletLayer',this.node);
+        bullet.setPosition(pos);
+        
+        let to_pos=new cc.Vec2(pos.x+200,pos.y)
+        if(!this.playerNode.getComponent('playerControl').Orientation){
+            to_pos=new cc.Vec2(pos.x-200,pos.y);
+            bullet.scaleX=-1
+        }
+
+        //到达最大射程后回收进pool
+        bullet.runAction(cc.sequence(cc.moveTo(1,to_pos).easing(cc.easeIn(1.0)),cc.callFunc(()=>{
+            this.bulletPool.put(bullet);
+        })))
     }
 }

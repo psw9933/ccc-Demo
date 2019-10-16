@@ -71,6 +71,7 @@ var gameKeyControl = /** @class */ (function (_super) {
     gameKeyControl.prototype.shoot = function () {
         cc.log('jump');
         this.playerControl._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.SHOOT;
+        cc.systemEvent.emit(gameProtocol_1.gameProtocol.event.playerShooting, this);
     };
     gameKeyControl.prototype._touchEndEvent = function () {
         cc.log('stop');

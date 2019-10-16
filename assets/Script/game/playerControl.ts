@@ -42,12 +42,12 @@ export default class playerControl extends cc.Component {
 
 
     private spine: sp.Skeleton = null
-    private movableArea = null
     private mixTime: number = 0.2
     //正在播放动画状态
     /**人物朝向 true为右方false为左边 */
-    private Orientation: boolean = true
+    public Orientation: boolean = true
     private playerScale: any = null;
+    private jumpForce: any = 100;
     onLoad() {
         this.playerScale = 0.6
         this.initEvent()
@@ -74,6 +74,14 @@ export default class playerControl extends cc.Component {
         this.spine.setMix(anim1, anim2, this.mixTime);
         this.spine.setMix(anim2, anim1, this.mixTime);
     }
+
+    onMuzzlePos(){
+        let size=this.node.getContentSize();
+        let x=(size.width)*this.playerScale;
+        let y=(size.height/2)*this.playerScale;
+
+        return new cc.Vec2(x,y)
+    }
     // methods
     move() {
         //人物面向转身
@@ -86,37 +94,28 @@ export default class playerControl extends cc.Component {
 
         let newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
         this.node.setPosition(newPos);
-        // //碰撞体检查newPos在可移动区域范围内
-        // if (this.battleView.checkInMovableArea(newPos)) {
-        //     this.node.setPosition(newPos);
-        // }
-        //cc.log(this.node.getPosition())
-
     }
 
     // methods
     jump() {
-        let jumpForce = null
-        //人物面向转身
+        if(this.hasAniJump) return;
+        this.hasAniJump=true;
+
+        let _x=this.node.getPosition().x;
+        let _y=this.node.getPosition().y;
+
         if (this.Orientation) {
-            jumpForce = new cc.Vec2(5, 5);
+            _x+=this.jumpForce
         }
         else {
-            jumpForce = new cc.Vec2(-5, 5);
+            _x-=this.jumpForce
         }
-
-        let newPos = this.node.position.add(jumpForce);
-        this.node.runAction(cc.sequence(cc.moveTo(1, newPos), cc.callFunc(() => {
+        
+        this.node.runAction(cc.sequence(cc.jumpTo(1, new cc.Vec2(_x,_y),this.jumpForce,1), cc.callFunc(() => {
             this._motionType = gameProtocol.playerControl.motionType.STOP;
             this.setPlayerAnimation('run', true);
+            this.hasAniJump=false
         })))
-        //this.node.setPosition(newPos);
-        // //碰撞体检查newPos在可移动区域范围内
-        // if (this.battleView.checkInMovableArea(newPos)) {
-        //     this.node.setPosition(newPos);
-        // }
-        //cc.log(this.node.getPosition())
-
     }
 
     Shooting() {
@@ -133,7 +132,6 @@ export default class playerControl extends cc.Component {
     private hasAniRun: boolean = false
     private hasAniJump: boolean = false
     update(dt) {
-        //cc.log(this._motionType)
         switch (this._motionType) {
             case gameProtocol.playerControl.motionType.STOP:
                 this.setPlayerAnimation('idle', true);

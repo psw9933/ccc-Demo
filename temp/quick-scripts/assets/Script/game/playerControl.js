@@ -48,12 +48,12 @@ var playerControl = /** @class */ (function (_super) {
         /**移动速度 */
         _this._moveSpeed = 0;
         _this.spine = null;
-        _this.movableArea = null;
         _this.mixTime = 0.2;
         //正在播放动画状态
         /**人物朝向 true为右方false为左边 */
         _this.Orientation = true;
         _this.playerScale = null;
+        _this.jumpForce = 100;
         _this.hasAniStop = false;
         _this.hasAniRun = false;
         _this.hasAniJump = false;
@@ -82,6 +82,12 @@ var playerControl = /** @class */ (function (_super) {
         this.spine.setMix(anim1, anim2, this.mixTime);
         this.spine.setMix(anim2, anim1, this.mixTime);
     };
+    playerControl.prototype.onMuzzlePos = function () {
+        var size = this.node.getContentSize();
+        var x = (size.width) * this.playerScale;
+        var y = (size.height / 2) * this.playerScale;
+        return new cc.Vec2(x, y);
+    };
     // methods
     playerControl.prototype.move = function () {
         //人物面向转身
@@ -93,34 +99,26 @@ var playerControl = /** @class */ (function (_super) {
         }
         var newPos = this.node.position.add(this.moveDir.mul(this._moveSpeed / 60));
         this.node.setPosition(newPos);
-        // //碰撞体检查newPos在可移动区域范围内
-        // if (this.battleView.checkInMovableArea(newPos)) {
-        //     this.node.setPosition(newPos);
-        // }
-        //cc.log(this.node.getPosition())
     };
     // methods
     playerControl.prototype.jump = function () {
         var _this = this;
-        var jumpForce = null;
-        //人物面向转身
+        if (this.hasAniJump)
+            return;
+        this.hasAniJump = true;
+        var _x = this.node.getPosition().x;
+        var _y = this.node.getPosition().y;
         if (this.Orientation) {
-            jumpForce = new cc.Vec2(5, 5);
+            _x += this.jumpForce;
         }
         else {
-            jumpForce = new cc.Vec2(-5, 5);
+            _x -= this.jumpForce;
         }
-        var newPos = this.node.position.add(jumpForce);
-        this.node.runAction(cc.sequence(cc.moveTo(1, newPos), cc.callFunc(function () {
+        this.node.runAction(cc.sequence(cc.jumpTo(1, new cc.Vec2(_x, _y), this.jumpForce, 1), cc.callFunc(function () {
             _this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
             _this.setPlayerAnimation('run', true);
+            _this.hasAniJump = false;
         })));
-        //this.node.setPosition(newPos);
-        // //碰撞体检查newPos在可移动区域范围内
-        // if (this.battleView.checkInMovableArea(newPos)) {
-        //     this.node.setPosition(newPos);
-        // }
-        //cc.log(this.node.getPosition())
     };
     playerControl.prototype.Shooting = function () {
         cc.log("Shooting");
@@ -133,7 +131,6 @@ var playerControl = /** @class */ (function (_super) {
         this._motionType = gameProtocol_1.gameProtocol.playerControl.motionType.STOP;
     };
     playerControl.prototype.update = function (dt) {
-        //cc.log(this._motionType)
         switch (this._motionType) {
             case gameProtocol_1.gameProtocol.playerControl.motionType.STOP:
                 this.setPlayerAnimation('idle', true);

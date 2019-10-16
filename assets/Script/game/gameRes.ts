@@ -35,7 +35,7 @@ var playerRes = {
         health:5,
         aniPath:"spine/heros/contra5"
     },
-
+    
     contraAniName:['attack','change','die1','die2','idle','roll2','run','run_attack'],
     
     contraGunName:['gun0','gun1','gun2','gun3','gun4'],

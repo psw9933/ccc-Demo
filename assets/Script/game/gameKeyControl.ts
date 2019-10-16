@@ -40,6 +40,8 @@ export default class gameKeyControl extends cc.Component {
         // self.node.on(cc.Node.EventType.TOUCH_END, self._touchEndEvent, self);
         // self.node.on(cc.Node.EventType.TOUCH_CANCEL, self._touchEndEvent, self);
       }
+
+      
     // LIFE-CYCLE CALLBACKS:
 
     
@@ -61,6 +63,7 @@ export default class gameKeyControl extends cc.Component {
     shoot(){
         cc.log('jump')
         this.playerControl._motionType=gameProtocol.playerControl.motionType.SHOOT;
+        cc.systemEvent.emit(gameProtocol.event.playerShooting,this);
     }
 
     _touchEndEvent(){
